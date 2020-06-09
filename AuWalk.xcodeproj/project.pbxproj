@@ -9,12 +9,11 @@
 /* Begin PBXBuildFile section */
 		AEC25871248FC038006B7F95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC25870248FC038006B7F95 /* AppDelegate.swift */; };
 		AEC25873248FC038006B7F95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC25872248FC038006B7F95 /* SceneDelegate.swift */; };
-		AEC25875248FC038006B7F95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC25874248FC038006B7F95 /* ViewController.swift */; };
-		AEC25878248FC038006B7F95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEC25876248FC038006B7F95 /* Main.storyboard */; };
 		AEC2587A248FC03F006B7F95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEC25879248FC03F006B7F95 /* Assets.xcassets */; };
 		AEC2587D248FC03F006B7F95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEC2587B248FC03F006B7F95 /* LaunchScreen.storyboard */; };
 		AEC25888248FC040006B7F95 /* AuWalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC25887248FC040006B7F95 /* AuWalkTests.swift */; };
 		AEC25893248FC040006B7F95 /* AuWalkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC25892248FC040006B7F95 /* AuWalkUITests.swift */; };
+		AEC258A5248FCAF3006B7F95 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258A4248FCAF3006B7F95 /* PetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +37,6 @@
 		AEC2586D248FC038006B7F95 /* AuWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC25870248FC038006B7F95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEC25872248FC038006B7F95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AEC25874248FC038006B7F95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AEC25877248FC038006B7F95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AEC25879248FC03F006B7F95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEC2587C248FC03F006B7F95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEC2587E248FC03F006B7F95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +46,7 @@
 		AEC2588E248FC040006B7F95 /* AuWalkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuWalkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC25892248FC040006B7F95 /* AuWalkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuWalkUITests.swift; sourceTree = "<group>"; };
 		AEC25894248FC040006B7F95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEC258A4248FCAF3006B7F95 /* PetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +97,11 @@
 		AEC2586F248FC038006B7F95 /* AuWalk */ = {
 			isa = PBXGroup;
 			children = (
+				AEC258A0248FCA36006B7F95 /* Model */,
+				AEC258A2248FCA45006B7F95 /* View */,
+				AEC258A3248FCA50006B7F95 /* Controller */,
 				AEC25870248FC038006B7F95 /* AppDelegate.swift */,
 				AEC25872248FC038006B7F95 /* SceneDelegate.swift */,
-				AEC25874248FC038006B7F95 /* ViewController.swift */,
-				AEC25876248FC038006B7F95 /* Main.storyboard */,
-				AEC25879248FC03F006B7F95 /* Assets.xcassets */,
 				AEC2587B248FC03F006B7F95 /* LaunchScreen.storyboard */,
 				AEC2587E248FC03F006B7F95 /* Info.plist */,
 			);
@@ -126,6 +124,29 @@
 				AEC25894248FC040006B7F95 /* Info.plist */,
 			);
 			path = AuWalkUITests;
+			sourceTree = "<group>";
+		};
+		AEC258A0248FCA36006B7F95 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AEC258A2248FCA45006B7F95 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AEC25879248FC03F006B7F95 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AEC258A3248FCA50006B7F95 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AEC258A4248FCAF3006B7F95 /* PetViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +255,6 @@
 			files = (
 				AEC2587D248FC03F006B7F95 /* LaunchScreen.storyboard in Resources */,
 				AEC2587A248FC03F006B7F95 /* Assets.xcassets in Resources */,
-				AEC25878248FC038006B7F95 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +279,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEC25875248FC038006B7F95 /* ViewController.swift in Sources */,
 				AEC25871248FC038006B7F95 /* AppDelegate.swift in Sources */,
+				AEC258A5248FCAF3006B7F95 /* PetViewController.swift in Sources */,
 				AEC25873248FC038006B7F95 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,14 +317,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AEC25876248FC038006B7F95 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AEC25877248FC038006B7F95 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AEC2587B248FC03F006B7F95 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -366,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +432,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
