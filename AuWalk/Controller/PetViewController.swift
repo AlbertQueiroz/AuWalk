@@ -27,7 +27,8 @@ class PetViewController: UIViewController {
         NSLayoutConstraint.activate([
             self.modalView.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 64),
             self.modalView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.modalView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+            self.modalView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.modalView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5)
         ])
     }
 }

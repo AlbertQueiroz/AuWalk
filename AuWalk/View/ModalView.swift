@@ -36,7 +36,6 @@ class ModalView: UIView {
     func setupModal() {
         self.backgroundColor = .white
         self.layer.cornerRadius = 30
-        self.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
     func setupSegmentedControl() {
