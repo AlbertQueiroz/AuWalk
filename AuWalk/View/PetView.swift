@@ -23,11 +23,12 @@ class PetView: UIView {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupBackground()
         setupDog()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -51,8 +52,10 @@ class PetView: UIView {
         NSLayoutConstraint.activate([
             self.dog.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.6),
             self.dog.heightAnchor.constraint(equalTo: self.dog.widthAnchor),
-            self.dog.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.dog.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -64),
             self.dog.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
+    
+
 }

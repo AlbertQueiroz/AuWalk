@@ -12,11 +12,22 @@ class PetViewController: UIViewController {
 
     //View
     let petView = PetView()
+    let modalView = ModalView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = petView
-//        view.backgroundColor = .red
+        setupModal()
+
     }
     
+    func setupModal() {
+        self.view.addSubview(modalView)
+        self.modalView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.modalView.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 64),
+            self.modalView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.modalView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+        ])
+    }
 }

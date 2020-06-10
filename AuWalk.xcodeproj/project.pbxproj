@@ -15,6 +15,7 @@
 		AEC25893248FC040006B7F95 /* AuWalkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC25892248FC040006B7F95 /* AuWalkUITests.swift */; };
 		AEC258A5248FCAF3006B7F95 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258A4248FCAF3006B7F95 /* PetViewController.swift */; };
 		AEC258B024910CCE006B7F95 /* PetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258AF24910CCE006B7F95 /* PetView.swift */; };
+		AEC258B424911F32006B7F95 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258B324911F32006B7F95 /* ModalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		AEC25894248FC040006B7F95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEC258A4248FCAF3006B7F95 /* PetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
 		AEC258AF24910CCE006B7F95 /* PetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetView.swift; sourceTree = "<group>"; };
+		AEC258B324911F32006B7F95 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			children = (
 				AEC25879248FC03F006B7F95 /* Assets.xcassets */,
 				AEC258AF24910CCE006B7F95 /* PetView.swift */,
+				AEC258B324911F32006B7F95 /* ModalView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			files = (
 				AEC258B024910CCE006B7F95 /* PetView.swift in Sources */,
 				AEC25871248FC038006B7F95 /* AppDelegate.swift in Sources */,
+				AEC258B424911F32006B7F95 /* ModalView.swift in Sources */,
 				AEC258A5248FCAF3006B7F95 /* PetViewController.swift in Sources */,
 				AEC25873248FC038006B7F95 /* SceneDelegate.swift in Sources */,
 			);
