@@ -16,6 +16,7 @@
 		AEC258A5248FCAF3006B7F95 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258A4248FCAF3006B7F95 /* PetViewController.swift */; };
 		E9089FED24906215005FB179 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9089FEC24906215005FB179 /* TopBar.swift */; };
 		E9089FF024910485005FB179 /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9089FEF24910485005FB179 /* MoneyView.swift */; };
+		E96C56E524912448002867FF /* TopBarButtom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C56E424912448002867FF /* TopBarButtom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		AEC258A4248FCAF3006B7F95 /* PetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
 		E9089FEC24906215005FB179 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		E9089FEF24910485005FB179 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
+		E96C56E424912448002867FF /* TopBarButtom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarButtom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				E9089FEF24910485005FB179 /* MoneyView.swift */,
+				E96C56E424912448002867FF /* TopBarButtom.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			files = (
 				E9089FF024910485005FB179 /* MoneyView.swift in Sources */,
 				AEC25871248FC038006B7F95 /* AppDelegate.swift in Sources */,
+				E96C56E524912448002867FF /* TopBarButtom.swift in Sources */,
 				AEC258A5248FCAF3006B7F95 /* PetViewController.swift in Sources */,
 				AEC25873248FC038006B7F95 /* SceneDelegate.swift in Sources */,
 				E9089FED24906215005FB179 /* TopBar.swift in Sources */,
