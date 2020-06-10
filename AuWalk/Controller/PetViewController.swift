@@ -31,4 +31,5 @@ class PetViewController: UIViewController {
             self.modalView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5)
         ])
     }
+    
 }

@@ -42,8 +42,10 @@ class ModalView: UIView {
         self.addSubview(segmentedControl)
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.segmentedControl.topAnchor.constraint(equalTo: self.topAnchor, constant: 24),
-            self.widthAnchor.constraint(equalToConstant: 300)
+            self.segmentedControl.topAnchor.constraint(equalTo: self.topAnchor),
+            self.segmentedControl.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.segmentedControl.widthAnchor.constraint(equalToConstant: 300),
+            self.segmentedControl.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
@@ -51,10 +53,10 @@ class ModalView: UIView {
         self.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.topAnchor.constraint(equalTo: self.topAnchor),
-            self.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            self.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+            self.tableView.topAnchor.constraint(equalTo: self.segmentedControl.bottomAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
         ])
     }
     
