@@ -10,9 +10,13 @@ import UIKit
 
 class PetViewController: UIViewController {
 
+    //View
+    let petView = PetView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        self.view = petView
+//        view.backgroundColor = .red
     }
     
 }
