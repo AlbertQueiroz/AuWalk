@@ -9,6 +9,11 @@
 import UIKit
 
 class ModalView: UIView {
+    
+    var handleArea: UIView = {
+        let view = UIView()
+        return view
+    }()
 
     var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl()
@@ -28,6 +33,7 @@ class ModalView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupModal()
+        setupHandleArea()
         setupSegmentedControl()
         setupTableView()
     }
@@ -39,6 +45,17 @@ class ModalView: UIView {
     func setupModal() {
         self.backgroundColor = .white
         self.layer.cornerRadius = 16
+    }
+    
+    func setupHandleArea() {
+        self.addSubview(self.handleArea)
+        self.handleArea.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.handleArea.topAnchor.constraint(equalTo: self.topAnchor),
+            self.handleArea.heightAnchor.constraint(equalToConstant: 80),
+            self.handleArea.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.handleArea.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
     }
     
     func setupSegmentedControl() {
@@ -56,7 +73,7 @@ class ModalView: UIView {
         self.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.tableView.topAnchor.constraint(equalTo: self.segmentedControl.bottomAnchor),
+            self.tableView.topAnchor.constraint(equalTo: self.segmentedControl.bottomAnchor, constant: 24),
             self.tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor)

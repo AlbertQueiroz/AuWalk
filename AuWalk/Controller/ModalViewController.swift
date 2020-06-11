@@ -10,31 +10,17 @@ import UIKit
 
 class ModalViewController: UIViewController {
     
-    var modalView = ModalView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 64, width: UIScreen.main.bounds.width, height: 250))
+    var modalView = ModalView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 90, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4))
     
-    var handleArea: UIView = {
-        let view = UIView()
-        return view
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = modalView
         self.modalView.tableView.delegate = self
         self.modalView.tableView.dataSource = self
-        setupHandleArea()
     }
     
-    func setupHandleArea() {
-        self.modalView.addSubview(self.handleArea)
-        self.handleArea.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            self.handleArea.topAnchor.constraint(equalTo: self.view.topAnchor),
-            self.handleArea.heightAnchor.constraint(equalToConstant: 80),
-            self.handleArea.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.handleArea.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        ])
-    }
+
 }
 
 extension ModalViewController: UITableViewDelegate, UITableViewDataSource {
