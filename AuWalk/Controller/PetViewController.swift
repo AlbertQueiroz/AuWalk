@@ -23,22 +23,22 @@ class PetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = petView
-        setupModal()
+        //setupModal()
         setupViews()
-        setupConstraints()
+        setupTopBar()
     }
     
     func setupViews() {
         view.addSubview(topBar)
     }
     
-    func setupConstraints() {
+    func setupTopBar() {
         
         NSLayoutConstraint.activate([
         
             topBar.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
             topBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            topBar.heightAnchor.constraint(equalToConstant: 20)
+            topBar.heightAnchor.constraint(equalToConstant: 40)
             
         ])
         
