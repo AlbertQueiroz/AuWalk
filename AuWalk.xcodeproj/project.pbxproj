@@ -16,7 +16,7 @@
 		AEC258A5248FCAF3006B7F95 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258A4248FCAF3006B7F95 /* PetViewController.swift */; };
 		AEC258B024910CCE006B7F95 /* PetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258AF24910CCE006B7F95 /* PetView.swift */; };
 		AEC258B424911F32006B7F95 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258B324911F32006B7F95 /* ModalView.swift */; };
-		EC88B1582491AA4A00FFBC0D /* structItens.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC88B1572491AA4A00FFBC0D /* structItens.swift */; };
+		EC88B1582491AA4A00FFBC0D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC88B1572491AA4A00FFBC0D /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 		AEC258A4248FCAF3006B7F95 /* PetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
 		AEC258AF24910CCE006B7F95 /* PetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetView.swift; sourceTree = "<group>"; };
 		AEC258B324911F32006B7F95 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
-		EC88B1572491AA4A00FFBC0D /* structItens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = structItens.swift; sourceTree = "<group>"; };
+		EC88B1572491AA4A00FFBC0D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +135,7 @@
 		AEC258A0248FCA36006B7F95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EC88B1572491AA4A00FFBC0D /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -145,7 +146,6 @@
 				AEC25879248FC03F006B7F95 /* Assets.xcassets */,
 				AEC258AF24910CCE006B7F95 /* PetView.swift */,
 				AEC258B324911F32006B7F95 /* ModalView.swift */,
-				EC88B1572491AA4A00FFBC0D /* structItens.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,7 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC88B1582491AA4A00FFBC0D /* structItens.swift in Sources */,
+				EC88B1582491AA4A00FFBC0D /* Item.swift in Sources */,
 				AEC258B024910CCE006B7F95 /* PetView.swift in Sources */,
 				AEC25871248FC038006B7F95 /* AppDelegate.swift in Sources */,
 				AEC258B424911F32006B7F95 /* ModalView.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct itensDecoder : Decodable {
+public struct Item : Decodable {
     var name : String
     var description : String
     var price : Int
