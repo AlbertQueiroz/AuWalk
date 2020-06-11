@@ -17,7 +17,7 @@ class PetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = petView
-        setupModal()
+//        setupModal()
 
     }
     
