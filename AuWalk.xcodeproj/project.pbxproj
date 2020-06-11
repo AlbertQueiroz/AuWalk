@@ -17,6 +17,8 @@
 		AEC258B024910CCE006B7F95 /* PetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258AF24910CCE006B7F95 /* PetView.swift */; };
 		AEC258B424911F32006B7F95 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258B324911F32006B7F95 /* ModalView.swift */; };
 		EC88B1582491AA4A00FFBC0D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC88B1572491AA4A00FFBC0D /* Item.swift */; };
+		AEC258B92491B1BC006B7F95 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258B82491B1BB006B7F95 /* ModalViewController.swift */; };
+		AEC258BB2491CC32006B7F95 /* PetViewController+ModaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258BA2491CC32006B7F95 /* PetViewController+ModaConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		AEC258AF24910CCE006B7F95 /* PetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetView.swift; sourceTree = "<group>"; };
 		AEC258B324911F32006B7F95 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		EC88B1572491AA4A00FFBC0D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		AEC258B82491B1BB006B7F95 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		AEC258BA2491CC32006B7F95 /* PetViewController+ModaConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetViewController+ModaConfig.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		AEC2586F248FC038006B7F95 /* AuWalk */ = {
 			isa = PBXGroup;
 			children = (
+				AEC258B524918239006B7F95 /* Extensions */,
 				AEC258A0248FCA36006B7F95 /* Model */,
 				AEC258A2248FCA45006B7F95 /* View */,
 				AEC258A3248FCA50006B7F95 /* Controller */,
@@ -154,8 +159,17 @@
 			isa = PBXGroup;
 			children = (
 				AEC258A4248FCAF3006B7F95 /* PetViewController.swift */,
+				AEC258B82491B1BB006B7F95 /* ModalViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		AEC258B524918239006B7F95 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AEC258BA2491CC32006B7F95 /* PetViewController+ModaConfig.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,7 +306,9 @@
 				AEC258B024910CCE006B7F95 /* PetView.swift in Sources */,
 				AEC25871248FC038006B7F95 /* AppDelegate.swift in Sources */,
 				AEC258B424911F32006B7F95 /* ModalView.swift in Sources */,
+				AEC258BB2491CC32006B7F95 /* PetViewController+ModaConfig.swift in Sources */,
 				AEC258A5248FCAF3006B7F95 /* PetViewController.swift in Sources */,
+				AEC258B92491B1BC006B7F95 /* ModalViewController.swift in Sources */,
 				AEC25873248FC038006B7F95 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -28,7 +28,6 @@ class PetView: UIView {
         super.init(frame: frame)
         setupBackground()
         setupDog()
-        
     }
     
     required init?(coder: NSCoder) {

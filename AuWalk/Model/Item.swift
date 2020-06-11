@@ -8,13 +8,16 @@
 
 import Foundation
 
-public struct Item : Decodable {
+public struct Item : Decodable, Encodable {
     var name : String
     var description : String
     var price : Int
-    init (name : String, description: String, price: Int) {
+    var category : String
+    
+    init (name : String, description: String, price: Int, category : String ) {
         self.name = name
         self.description = description
         self.price = price
+        self.category = category
     }
 }
