@@ -17,7 +17,6 @@ extension PetViewController {
         case collapsed
     }
     
-    
     func setupModal() {
         visualEffectView = UIVisualEffectView()
         visualEffectView.frame = self.view.frame
@@ -97,6 +96,18 @@ extension PetViewController {
             
             cornerRadiusAnimator.startAnimation()
             runningAnimations.append(cornerRadiusAnimator)
+            
+            let segmentedControlAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
+                switch state {
+                case .expanded:
+                    self.modalVC.modalView.segmentedControl.alpha = 1
+                case .collapsed:
+                    self.modalVC.modalView.segmentedControl.alpha = 0
+                }
+            }
+            
+            segmentedControlAnimator.startAnimation()
+            runningAnimations.append(segmentedControlAnimator)
             
         }
     }

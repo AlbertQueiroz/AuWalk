@@ -59,6 +59,7 @@ class ModalView: UIView {
     }
     
     func setupSegmentedControl() {
+        segmentedControl.alpha = 0
         self.addSubview(segmentedControl)
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
