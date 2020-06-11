@@ -17,7 +17,7 @@ class PetViewController: UIViewController {
     }()
 
     let petView = PetView()
-//    let modalView = ModalView()
+    let modalView = ModalView()
     
     //Modal Properties
     var modalVC: ModalViewController!
@@ -36,7 +36,6 @@ class PetViewController: UIViewController {
         super.viewDidLoad()
         self.view = petView
         setupModal()
-        //setupModal()
         setupViews()
         setupTopBar()
     }
@@ -53,18 +52,6 @@ class PetViewController: UIViewController {
             topBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             topBar.heightAnchor.constraint(equalToConstant: 40)
             
-        ])
-        
-    }
-    
-    func setupModal() {
-        self.view.addSubview(modalView)
-        self.modalView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            self.modalView.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 64),
-            self.modalView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.modalView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.modalView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5)
         ])
     }
 }
