@@ -12,13 +12,16 @@ class ModalView: UIView {
 
     var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl()
-        segmentedControl.backgroundColor = .red
+        segmentedControl.insertSegment(withTitle: nil, at: 0, animated: true)
+        segmentedControl.insertSegment(withTitle: nil, at: 1, animated: true)
+        segmentedControl.insertSegment(withTitle: nil, at: 2, animated: true)
+        segmentedControl.insertSegment(withTitle: nil, at: 3, animated: true)
         return segmentedControl
     }()
     
     var tableView: UITableView = {
        let tableView = UITableView()
-        tableView.backgroundColor = .blue
+        tableView.backgroundColor = .white
         return tableView
     }()
     
@@ -35,7 +38,7 @@ class ModalView: UIView {
     
     func setupModal() {
         self.backgroundColor = .white
-        self.layer.cornerRadius = 30
+        self.layer.cornerRadius = 16
     }
     
     func setupSegmentedControl() {
@@ -44,8 +47,8 @@ class ModalView: UIView {
         NSLayoutConstraint.activate([
             self.segmentedControl.topAnchor.constraint(equalTo: self.topAnchor),
             self.segmentedControl.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.segmentedControl.widthAnchor.constraint(equalToConstant: 300),
-            self.segmentedControl.heightAnchor.constraint(equalToConstant: 60)
+            self.segmentedControl.widthAnchor.constraint(equalToConstant: 250),
+            self.segmentedControl.heightAnchor.constraint(equalToConstant: 64)
         ])
     }
     
