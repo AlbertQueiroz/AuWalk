@@ -13,6 +13,9 @@
 		AEC2587D248FC03F006B7F95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEC2587B248FC03F006B7F95 /* LaunchScreen.storyboard */; };
 		AEC25888248FC040006B7F95 /* AuWalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC25887248FC040006B7F95 /* AuWalkTests.swift */; };
 		AEC25893248FC040006B7F95 /* AuWalkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC25892248FC040006B7F95 /* AuWalkUITests.swift */; };
+		ECED3F58249127EA00DACECA /* HomePetStatusCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED3F57249127EA00DACECA /* HomePetStatusCardView.swift */; };
+		ECED3F5A2491286300DACECA /* HomePetStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED3F592491286300DACECA /* HomePetStatusView.swift */; };
+		ECED3F5F2491290600DACECA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED3F5E2491290600DACECA /* Colors.swift */; };
 		AEC258B024910CCE006B7F95 /* PetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258AF24910CCE006B7F95 /* PetView.swift */; };
 		AEC258B424911F32006B7F95 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258B324911F32006B7F95 /* ModalView.swift */; };
 		E907AA6E2491DB3D000F36EA /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E907AA6D2491DB3D000F36EA /* PetViewController.swift */; };
@@ -61,6 +64,9 @@
 		E907AA6D2491DB3D000F36EA /* PetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
 		E9089FEC24906215005FB179 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		E9089FEF24910485005FB179 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
+		ECED3F57249127EA00DACECA /* HomePetStatusCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePetStatusCardView.swift; path = AuWalk/View/HomePetStatusCardView.swift; sourceTree = SOURCE_ROOT; };
+		ECED3F592491286300DACECA /* HomePetStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePetStatusView.swift; path = AuWalk/View/HomePetStatusView.swift; sourceTree = SOURCE_ROOT; };
+		ECED3F5E2491290600DACECA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,7 @@
 		AEC2586F248FC038006B7F95 /* AuWalk */ = {
 			isa = PBXGroup;
 			children = (
+				ECED3F5D249128F800DACECA /* Shared */,
 				AEC258B524918239006B7F95 /* Extensions */,
 				AEC258A0248FCA36006B7F95 /* Model */,
 				AEC258A2248FCA45006B7F95 /* View */,
@@ -152,6 +159,8 @@
 		AEC258A2248FCA45006B7F95 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ECED3F57249127EA00DACECA /* HomePetStatusCardView.swift */,
+				ECED3F592491286300DACECA /* HomePetStatusView.swift */,
 				E9089FEE24910453005FB179 /* Components */,
 				AEC25879248FC03F006B7F95 /* Assets.xcassets */,
 				E9089FEC24906215005FB179 /* TopBar.swift */,
@@ -168,6 +177,14 @@
 				E907AA6D2491DB3D000F36EA /* PetViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		ECED3F5D249128F800DACECA /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				ECED3F5E2491290600DACECA /* Colors.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		AEC258B524918239006B7F95 /* Extensions */ = {
@@ -319,11 +336,14 @@
 				EC88B1582491AA4A00FFBC0D /* Item.swift in Sources */,
 				AEC258B024910CCE006B7F95 /* PetView.swift in Sources */,
 				E907AA6E2491DB3D000F36EA /* PetViewController.swift in Sources */,
+				ECED3F5A2491286300DACECA /* HomePetStatusView.swift in Sources */,
 				AEC25871248FC038006B7F95 /* AppDelegate.swift in Sources */,
 				E907AA6B2491293C000F36EA /* MoneyView.swift in Sources */,
 				AEC258B424911F32006B7F95 /* ModalView.swift in Sources */,
 				AEC258BB2491CC32006B7F95 /* PetViewController+ModaConfig.swift in Sources */,
 				AEC258B92491B1BC006B7F95 /* ModalViewController.swift in Sources */,
+				ECED3F5F2491290600DACECA /* Colors.swift in Sources */,
+				ECED3F58249127EA00DACECA /* HomePetStatusCardView.swift in Sources */,
 				AEC25873248FC038006B7F95 /* SceneDelegate.swift in Sources */,
 				E9089FED24906215005FB179 /* TopBar.swift in Sources */,
 			);
