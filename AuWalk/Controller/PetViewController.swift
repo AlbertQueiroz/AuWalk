@@ -10,7 +10,7 @@ import UIKit
 
 class PetViewController: UIViewController {
 
-    let circle = homePetStatusView()
+    let circle = HomePetStatusView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +48,18 @@ class PetViewController: UIViewController {
     @objc func initAnimate() {
         circle.cardFood.progressCircle.add(animatingCircle(fromValue: 0, toValue: 1), forKey: "Stroke End")
     }
+    
+    func animatingCircle (fromValue: Float, toValue: Float) -> CABasicAnimation {
+        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        
+             basicAnimation.toValue = toValue
+        basicAnimation.fromValue = fromValue
+             basicAnimation.duration = 1
+             basicAnimation.fillMode = .forwards
+             basicAnimation.isRemovedOnCompletion = false
+             return basicAnimation
+    }
+    
 
     
 }

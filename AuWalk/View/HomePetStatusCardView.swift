@@ -8,7 +8,7 @@
 
 import UIKit
 
-class homePetStatusCardView : UIView {
+class HomePetStatusCardView : UIView {
     
     let progressCircle : CAShapeLayer = {
         let layer = CAShapeLayer()

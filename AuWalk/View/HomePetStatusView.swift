@@ -8,10 +8,10 @@
 
 import UIKit
 
-class homePetStatusView : UIView {
+class HomePetStatusView : UIView {
     
-    let cardHeart : homePetStatusCardView = {
-        let card = homePetStatusCardView()
+    let cardHeart : HomePetStatusCardView = {
+        let card = HomePetStatusCardView()
         card.progressCircle.position = CGPoint(x: 86, y: 29)
         card.progressCircle.fillColor = UIColor.clear.cgColor
         card.progressCircle.lineWidth = 4
@@ -22,8 +22,8 @@ class homePetStatusView : UIView {
         
     }()
     
-    let cardFood : homePetStatusCardView = {
-        let card = homePetStatusCardView()
+    let cardFood : HomePetStatusCardView = {
+        let card = HomePetStatusCardView()
         card.progressCircle.position = CGPoint(x: 86, y: 29)
         card.progressCircle.fillColor = UIColor.clear.cgColor
         card.progressCircle.lineWidth = 4
@@ -35,8 +35,8 @@ class homePetStatusView : UIView {
         
     }()
     
-    let cardHygiene : homePetStatusCardView = {
-        let card = homePetStatusCardView()
+    let cardHygiene : HomePetStatusCardView = {
+        let card = HomePetStatusCardView()
         card.progressCircle.position = CGPoint(x: 86, y: 29)
         card.progressCircle.fillColor = UIColor.clear.cgColor
         card.progressCircle.lineWidth = 4
@@ -48,8 +48,8 @@ class homePetStatusView : UIView {
         
     }()
     
-    let cardEnergy : homePetStatusCardView = {
-        let card = homePetStatusCardView()
+    let cardEnergy : HomePetStatusCardView = {
+        let card = HomePetStatusCardView()
         card.progressCircle.position = CGPoint(x: 86, y: 29)
         card.progressCircle.fillColor = UIColor.clear.cgColor
         card.progressCircle.lineWidth = 4
