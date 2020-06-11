@@ -17,12 +17,25 @@ class PetViewController: UIViewController {
     }()
 
     let petView = PetView()
-    let modalView = ModalView()
+//    let modalView = ModalView()
+    
+    //Modal Properties
+    var modalVC: ModalViewController!
+    var visualEffectView: UIVisualEffectView!
+    let modalHeight: CGFloat = UIScreen.main.bounds.height * 0.4
+    let modalHandleAreaHeight: CGFloat = 90
+    var modalVisible = false
+    var nextState:ModalState {
+        return modalVisible ? .collapsed : .expanded
+    }
+    var runningAnimations = [UIViewPropertyAnimator]()
+    var animationProgressWhenInterrupted:CGFloat = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = petView
+        setupModal()
         //setupModal()
         setupViews()
         setupTopBar()
@@ -55,3 +68,5 @@ class PetViewController: UIViewController {
         ])
     }
 }
+
+
