@@ -29,8 +29,11 @@ extension ModalViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = ItemCell()
+        cell.itemName.text = "Teste"
+        cell.itemDescription.text = "Um grande teste"
         cell.backgroundColor = .clear
+
         return cell
     }
     

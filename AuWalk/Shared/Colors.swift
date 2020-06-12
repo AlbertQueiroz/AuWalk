@@ -19,4 +19,6 @@ extension UIColor {
     static let blueHygiene = UIColor.rgb(r: 82, g: 195, b: 255)
     static let greenLight = UIColor.rgb(r: 245, g: 255, b: 237)
     static let greenLightBar = UIColor.rgb(r:227 , g: 239, b: 217)
+    static let yellowButton = UIColor.rgb(r: 245, g: 255, b: 238)
+    static let brownButton = UIColor.rgb(r: 116, g: 76, b: 52)
 }
