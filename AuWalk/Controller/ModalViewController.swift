@@ -18,6 +18,7 @@ class ModalViewController: UIViewController {
         self.view = modalView
         self.modalView.tableView.delegate = self
         self.modalView.tableView.dataSource = self
+        self.modalView.tableView.separatorStyle = .none
     }
     
 
