@@ -13,6 +13,7 @@ class TopBar: UIView {
     let pawMoney: MoneyView = {
         let mv = MoneyView(coin: UIImage(named: "dogpaw"), amount: 3400)
         mv.translatesAutoresizingMaskIntoConstraints = false
+        mv.coinView.tintColor = .brownButton
         
         return mv
     }()
