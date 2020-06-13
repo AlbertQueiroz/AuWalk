@@ -29,8 +29,8 @@ class ItemCell: UITableViewCell {
     lazy var itemImage: UIImageView = {
         let im = UIImageView()
         im.translatesAutoresizingMaskIntoConstraints = false
-        im.contentMode = .scaleAspectFit
-        im.image = UIImage(named: item!.name.lowercased())?.withAlignmentRectInsets(UIEdgeInsets(top: -10, left: -10, bottom: -10, right: -10))
+        im.contentMode = .scaleAspectFill
+        im.image = UIImage(named: item!.name.lowercased())?.withAlignmentRectInsets(UIEdgeInsets(top: -10, left: 0, bottom: -10, right: 0))
         
         return im
     }()
@@ -50,6 +50,8 @@ class ItemCell: UITableViewCell {
         itd.translatesAutoresizingMaskIntoConstraints = false
         itd.font = UIFont.systemFont(ofSize: 14)
         itd.text = item!.description
+        itd.lineBreakMode = .byWordWrapping
+        itd.numberOfLines = 0
         
         return itd
     }()
@@ -70,8 +72,8 @@ class ItemCell: UITableViewCell {
     lazy var itemPrice: MoneyView = {
         let ip = MoneyView(coin: UIImage(named: "dogpaw"), amount: item!.price)
         ip.translatesAutoresizingMaskIntoConstraints = false
-        ip.moneyLabel.font = UIFont.systemFont(ofSize: 16)
-        ip.moneyLabel.textAlignment = .center
+        ip.moneyLabel.font = UIFont.systemFont(ofSize: 14)
+        ip.moneyLabel.textAlignment = .justified
         ip.coinView.tintColor = .brownButton
         
         return ip
@@ -85,6 +87,7 @@ class ItemCell: UITableViewCell {
         guard self.item != nil else {
             fatalError("Invalid item.")
         }
+        backgroundColor = .yellowButton
         
         addSubview(itemImage)
         setupStackViews()
@@ -96,7 +99,7 @@ class ItemCell: UITableViewCell {
         
         descriptionStackView.addArrangedSubview(itemName)
         descriptionStackView.addArrangedSubview(itemDescription)
-        descriptionStackView.alignment = .leading
+        descriptionStackView.alignment = .top
         descriptionStackView.axis = .vertical
         
         purchaseStackView.addArrangedSubview(useItemButton)
@@ -114,12 +117,14 @@ class ItemCell: UITableViewCell {
         NSLayoutConstraint.activate([
         
             itemImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10),
-            itemImage.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.9),
+            itemImage.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7),
             itemImage.widthAnchor.constraint(equalTo: itemImage.heightAnchor),
+            itemImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
-            descriptionStackView.heightAnchor.constraint(equalTo: itemImage.heightAnchor, multiplier: 0.6),
-            descriptionStackView.centerYAnchor.constraint(equalTo: itemImage.centerYAnchor),
             descriptionStackView.leftAnchor.constraint(equalTo: itemImage.rightAnchor, constant: 10),
+            descriptionStackView.rightAnchor.constraint(lessThanOrEqualTo: purchaseStackView.leftAnchor, constant: -30),
+            descriptionStackView.heightAnchor.constraint(lessThanOrEqualTo: itemImage.heightAnchor),
+            descriptionStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
             purchaseStackView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.8),
             purchaseStackView.rightAnchor.constraint(equalTo: self.rightAnchor),

@@ -32,7 +32,7 @@ extension ModalViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = Item(name: "Mamadeira", description: "Uma dose de leite letal", price: 400, category: "1")
+        let item = Item(name: "Mamadeira", description: "Esse item serve para saciar a fome do seu pet.", price: 400, category: "1")
         let cell = ItemCell(of: item)
         return cell
     }
