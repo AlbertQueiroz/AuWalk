@@ -21,4 +21,5 @@ extension UIColor {
     static let greenLightBar = UIColor.rgb(r:227 , g: 239, b: 217)
     static let yellowButton = UIColor.rgb(r: 245, g: 255, b: 238)
     static let brownButton = UIColor.rgb(r: 116, g: 76, b: 52)
+    static let greenDisabledCells = UIColor.rgb(r: 227, g: 238, b: 217)
 }

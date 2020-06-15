@@ -23,7 +23,7 @@ class PetViewController: UIViewController {
     var modalVC: ModalViewController!
     var visualEffectView: UIVisualEffectView!
     let modalHeight: CGFloat = UIScreen.main.bounds.height * 0.4
-    let modalHandleAreaHeight: CGFloat = 90
+    let modalHandleAreaHeight: CGFloat = 60
     var modalVisible = false
     var nextState:ModalState {
         return modalVisible ? .collapsed : .expanded
@@ -41,8 +41,8 @@ class PetViewController: UIViewController {
         setupViews()
         setupTopBar()
         
-        setCirclePositions(fromValue: view.frame.size.width)
-        setField()
+        //setCirclePositions(fromValue: view.frame.size.width)
+        //setField()
         
     }
     func setField () {
@@ -92,12 +92,13 @@ class PetViewController: UIViewController {
     func animatingCircle (fromValue: Float, toValue: Float) -> CABasicAnimation {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
-             basicAnimation.toValue = toValue
+        basicAnimation.toValue = toValue
         basicAnimation.fromValue = fromValue
-             basicAnimation.duration = 1
-             basicAnimation.fillMode = .forwards
-             basicAnimation.isRemovedOnCompletion = false
-             return basicAnimation
+        basicAnimation.duration = 1
+        basicAnimation.fillMode = .forwards
+        basicAnimation.isRemovedOnCompletion = false
+        
+        return basicAnimation
     }
     
 

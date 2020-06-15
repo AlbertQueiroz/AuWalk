@@ -17,6 +17,7 @@ class HomePetStatusCardView : UIView {
         layer.lineCap = .round
         layer.strokeEnd = 1
         layer.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
+        
         return layer
     }()
     
@@ -27,16 +28,32 @@ class HomePetStatusCardView : UIView {
     }()
     
     override init(frame: CGRect) {
-             super.init(frame: frame)
+        super.init(frame: frame)
         setupView()
-         }
+        setupContraints()
+    }
          
-         required init?(coder: NSCoder) {
-             super.init(coder: coder)
-            setupView()
-         }
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupView()
+    }
+    
     func setupView(){
         self.layer.addSublayer(progressCircle)
+        imageIconView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(imageIconView)
     }
+    
+    func setupContraints() {
+                
+        NSLayoutConstraint.activate([
+        
+            imageIconView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            imageIconView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            
+        ])
+        
+    }
+    
+    
 }
