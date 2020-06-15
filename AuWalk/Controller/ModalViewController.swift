@@ -29,7 +29,7 @@ class ModalViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        StoreRepository().allItems() { [weak self] (items) in
+        StoreRepository().read(category: StoreAPI.allItems) { [weak self] (items) in
             self?.items = items
         }
     }
@@ -47,6 +47,7 @@ extension ModalViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = items[indexPath.row]
         let cell = ItemCell(of: item)
+        cell.selectionStyle = .none
         return cell
     }
     

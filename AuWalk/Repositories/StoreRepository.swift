@@ -9,8 +9,8 @@
 import Foundation
 
 class StoreRepository {
-    func allItems(completion: @escaping ([Item]) -> Void) {
-        HTTP.get.request(url: StoreAPI.allItems.url) { data, response, errorMessage in
+    func read(category: StoreAPI, completion: @escaping ([Item]) -> Void) {
+        HTTP.get.request(url: category.url) { data, response, errorMessage in
             if let errorMessage = errorMessage {
                 print(errorMessage)
                 completion([])
