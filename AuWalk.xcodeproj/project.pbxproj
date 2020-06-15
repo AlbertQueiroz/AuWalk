@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AEA185F02497B0B5001358A3 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA185EF2497B0B5001358A3 /* HTTP.swift */; };
+		AEA185F22497B2BB001358A3 /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA185F12497B2BB001358A3 /* StoreAPI.swift */; };
+		AEA185F42497B392001358A3 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA185F32497B391001358A3 /* Router.swift */; };
+		AEA185F62497B726001358A3 /* StoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA185F52497B726001358A3 /* StoreRepository.swift */; };
 		AEC25871248FC038006B7F95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC25870248FC038006B7F95 /* AppDelegate.swift */; };
 		AEC25873248FC038006B7F95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC25872248FC038006B7F95 /* SceneDelegate.swift */; };
 		AEC2587A248FC03F006B7F95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEC25879248FC03F006B7F95 /* Assets.xcassets */; };
@@ -45,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AEA185EF2497B0B5001358A3 /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
+		AEA185F12497B2BB001358A3 /* StoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAPI.swift; sourceTree = "<group>"; };
+		AEA185F32497B391001358A3 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		AEA185F52497B726001358A3 /* StoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRepository.swift; sourceTree = "<group>"; };
 		AEC2586D248FC038006B7F95 /* AuWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC25870248FC038006B7F95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEC25872248FC038006B7F95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +104,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AEA185ED2497ADC4001358A3 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				AEA185F52497B726001358A3 /* StoreRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		AEA185EE2497ADCE001358A3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AEA185EF2497B0B5001358A3 /* HTTP.swift */,
+				AEA185F12497B2BB001358A3 /* StoreAPI.swift */,
+				AEA185F32497B391001358A3 /* Router.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		AEC25864248FC038006B7F95 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +145,8 @@
 		AEC2586F248FC038006B7F95 /* AuWalk */ = {
 			isa = PBXGroup;
 			children = (
+				AEA185EE2497ADCE001358A3 /* Services */,
+				AEA185ED2497ADC4001358A3 /* Repositories */,
 				ECED3F5D249128F800DACECA /* Shared */,
 				AEC258B524918239006B7F95 /* Extensions */,
 				AEC258A0248FCA36006B7F95 /* Model */,
@@ -336,6 +364,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEA185F22497B2BB001358A3 /* StoreAPI.swift in Sources */,
+				AEA185F02497B0B5001358A3 /* HTTP.swift in Sources */,
 				EC88B1582491AA4A00FFBC0D /* Item.swift in Sources */,
 				AEC258B024910CCE006B7F95 /* PetView.swift in Sources */,
 				E907AA6E2491DB3D000F36EA /* PetViewController.swift in Sources */,
@@ -344,10 +374,12 @@
 				AEC25871248FC038006B7F95 /* AppDelegate.swift in Sources */,
 				E907AA6B2491293C000F36EA /* MoneyView.swift in Sources */,
 				AEC258B424911F32006B7F95 /* ModalView.swift in Sources */,
+				AEA185F42497B392001358A3 /* Router.swift in Sources */,
 				AEC258BB2491CC32006B7F95 /* PetViewController+ModaConfig.swift in Sources */,
 				AEC258B92491B1BC006B7F95 /* ModalViewController.swift in Sources */,
 				ECED3F5F2491290600DACECA /* Colors.swift in Sources */,
 				ECED3F58249127EA00DACECA /* HomePetStatusCardView.swift in Sources */,
+				AEA185F62497B726001358A3 /* StoreRepository.swift in Sources */,
 				AEC25873248FC038006B7F95 /* SceneDelegate.swift in Sources */,
 				E9089FED24906215005FB179 /* TopBar.swift in Sources */,
 			);
