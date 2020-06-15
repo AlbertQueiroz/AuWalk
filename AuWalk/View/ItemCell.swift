@@ -40,6 +40,7 @@ class ItemCell: UITableViewCell {
         let itn = UILabel()
         itn.translatesAutoresizingMaskIntoConstraints = false
         itn.text = item!.name
+        itn.textColor = .black
         
         return itn
     }()
@@ -52,6 +53,7 @@ class ItemCell: UITableViewCell {
         itd.text = item!.description
         itd.lineBreakMode = .byWordWrapping
         itd.numberOfLines = 0
+        itd.textColor = .black
         
         return itd
     }()
@@ -88,7 +90,6 @@ class ItemCell: UITableViewCell {
             fatalError("Invalid item.")
         }
         backgroundColor = .yellowButton
-        
         addSubview(itemImage)
         setupStackViews()
         setupContraints()
@@ -135,6 +136,5 @@ class ItemCell: UITableViewCell {
         ])
         
     }
-    
     
 }
