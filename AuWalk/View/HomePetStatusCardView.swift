@@ -44,6 +44,7 @@ class HomePetStatusCardView : UIView {
         addSubview(imageIconView)
     }
     
+    //added image constraint to position inside circle
     func setupContraints() {
                 
         NSLayoutConstraint.activate([

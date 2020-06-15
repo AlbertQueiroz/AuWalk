@@ -56,12 +56,12 @@ extension ModalViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
+        
+    //- first it allows selection then selects the first cell (FOR NOW...)
+    //- then it changes the background of everything to disabled color except the selected cell
     func selectCellExpanded() {
         modalView.collectionView.allowsSelection = true
-        for cell in modalView.collectionView.visibleCells {
-            cell.backgroundColor = .greenDisabledCells
-        }
+        
         let selectedIndexPath = IndexPath(item: 0, section: 0)
         modalView.collectionView.selectItem(at: selectedIndexPath, animated: true, scrollPosition: .bottom)
         modalView.handleArea.backgroundColor = .greenDisabledCells
@@ -69,6 +69,7 @@ extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
     }
     
+    //sets colors to greenLight then erases background of cells to prevent them from keeping selected when collapsed
     func diselectCellCollapsing() {
         for cell in modalView.collectionView.visibleCells {
             cell.backgroundColor = .clear

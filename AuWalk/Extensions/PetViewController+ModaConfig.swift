@@ -99,6 +99,7 @@ extension PetViewController {
             cornerRadiusAnimator.startAnimation()
             runningAnimations.append(cornerRadiusAnimator)
             
+            //calls different functions depending on the state of the modal
             let collectionViewAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
                 switch state {
                 case .expanded:

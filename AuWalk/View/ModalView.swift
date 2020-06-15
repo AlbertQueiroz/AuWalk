@@ -87,17 +87,12 @@ class ModalView: UIView {
 class StoreCell: UICollectionViewCell {
             
     let card = HomePetStatusCardView()
-    
-    var cellAlpha: CGFloat?
-    
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(card)
         card.translatesAutoresizingMaskIntoConstraints = false
-        setupContraints()        
-        if let alpha = cellAlpha {
-            self.alpha = alpha
-        }
+        setupContraints()
         
     }
     
@@ -105,6 +100,7 @@ class StoreCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //rearrange previous created cell based on type
     func arrange(of type: CardType) {
         
         switch type {
