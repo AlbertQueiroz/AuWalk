@@ -79,7 +79,10 @@ extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSou
         modalView.collectionView.selectItem(at: selectedIndexPath, animated: true, scrollPosition: .bottom)
         modalView.handleArea.backgroundColor = .greenDisabledCells
         modalView.collectionView.backgroundColor = .greenDisabledCells
-
+        //Maybe gambs: Reload items when modal appears
+        StoreRepository().read(category: StoreAPI.health) { [weak self] (items) in
+            self?.items = items
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
