@@ -40,7 +40,7 @@ class ModalViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        StoreRepository().read(category: StoreAPI.allItems) { [weak self] (items) in
+        StoreRepository().read(category: StoreAPI.health) { [weak self] (items) in
             self?.items = items
         }
     }
@@ -90,6 +90,29 @@ extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSou
         modalView.collectionView.backgroundColor = .greenLight
         modalView.handleArea.backgroundColor = .greenLight
         modalView.collectionView.allowsSelection = false
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            StoreRepository().read(category: StoreAPI.health) { [weak self] (items) in
+                self?.items = items
+            }
+        case 1:
+            StoreRepository().read(category: StoreAPI.food) { [weak self] (items) in
+                self?.items = items
+            }
+        case 2:
+            StoreRepository().read(category: StoreAPI.shower) { [weak self] (items) in
+                self?.items = items
+            }
+        case 3:
+            StoreRepository().read(category: StoreAPI.energy) { [weak self] (items) in
+                self?.items = items
+            }
+        default:
+            return
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

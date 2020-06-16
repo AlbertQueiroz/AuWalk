@@ -27,9 +27,9 @@ enum StoreAPI: Router {
             switch self {
             case .allItems: return URL(string: "\(hostname)/item")
             case .food: return URL(string: "\(hostname)/item?category=1")
-            case .shower: return URL(string: "\(hostname)/item?category=1")
-            case .health: return URL(string: "\(hostname)/item?category=1")
-            case .energy: return URL(string: "\(hostname)/item?category=1")
+            case .shower: return URL(string: "\(hostname)/item?category=2")
+            case .health: return URL(string: "\(hostname)/item?category=3")
+            case .energy: return URL(string: "\(hostname)/item?category=4")
             }
         }
     }

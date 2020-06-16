@@ -27,7 +27,7 @@ class ModalView: UIView {
     
     var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .greenLight
         return tableView
     }()
     
