@@ -24,6 +24,7 @@ class MoneyView: UIView {
         ml.text = "0"
         ml.translatesAutoresizingMaskIntoConstraints = false
         ml.font = UIFont.systemFont(ofSize: 20)
+        ml.textColor = .black
         
         return ml
     }()

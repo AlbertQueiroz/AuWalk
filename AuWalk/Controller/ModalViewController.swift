@@ -82,6 +82,10 @@ extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        return
+    }
+    
     //sets colors to greenLight then erases background of cells to prevent them from keeping selected when collapsed
     func diselectCellCollapsing() {
         for cell in modalView.collectionView.visibleCells {
