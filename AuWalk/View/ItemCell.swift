@@ -29,7 +29,7 @@ class ItemCell: UITableViewCell {
     lazy var itemImage: UIImageView = {
         let im = UIImageView()
         im.translatesAutoresizingMaskIntoConstraints = false
-        im.contentMode = .scaleAspectFill
+        im.contentMode = .scaleAspectFit
         im.image = UIImage(named: item!.name.lowercased())?.withAlignmentRectInsets(UIEdgeInsets(top: -10, left: 0, bottom: -10, right: 0))
         
         return im
@@ -75,6 +75,7 @@ class ItemCell: UITableViewCell {
         let ip = MoneyView(coin: UIImage(named: "dogpaw"), amount: item!.price)
         ip.translatesAutoresizingMaskIntoConstraints = false
         ip.moneyLabel.font = UIFont.systemFont(ofSize: 14)
+        ip.moneyLabel.textColor = .black
         ip.moneyLabel.textAlignment = .justified
         ip.coinView.tintColor = .brownButton
         
