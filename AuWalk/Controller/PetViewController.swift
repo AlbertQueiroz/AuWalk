@@ -23,7 +23,7 @@ class PetViewController: UIViewController {
     var modalVC: ModalViewController!
     var visualEffectView: UIVisualEffectView!
     let modalHeight: CGFloat = UIScreen.main.bounds.height * 0.4
-    let modalHandleAreaHeight: CGFloat = 60
+    let modalHandleAreaHeight: CGFloat = 72
     var modalVisible = false
     var nextState:ModalState {
         return modalVisible ? .collapsed : .expanded
