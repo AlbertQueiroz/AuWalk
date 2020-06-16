@@ -10,10 +10,16 @@ import UIKit
 
 class InformationsView: UIView {
     
+
+    lazy var stepsToCoin: StepsToCoinsView = {
+        let v = StepsToCoinsView()
+        return v
+    }()
+    
     lazy var petName: UILabel = {
         var label = UILabel()
         label.text = "Default Text"
-        label.textColor = UIColor(red: 0.13, green: 0.16, blue: 0.12, alpha: 1.00)
+        label.textColor = .greenLabel
 
         label.font = sfRounded(size: 26)
         label.textAlignment = .center
@@ -24,7 +30,7 @@ class InformationsView: UIView {
     lazy var messageDay: UILabel = {
         var label = UILabel()
         label.text = "Default message the day"
-        label.textColor = UIColor(red: 0.13, green: 0.16, blue: 0.12, alpha: 1.00)
+        label.textColor = .greenLabel
 
         label.font = sfRounded(size: 18)
         label.textAlignment = .center
@@ -35,28 +41,10 @@ class InformationsView: UIView {
     lazy var today: UILabel = {
         var label = UILabel()
         label.text = "Hoje"
-        label.textColor = UIColor(red: 0.13, green: 0.16, blue: 0.12, alpha: 1.00)
+        label.textColor = .greenLabel
 
         label.font = sfRounded(size: 18)
         label.textAlignment = .center
-        return label
-    }()
-    
-    lazy var stepsDay: UILabel = {
-        var label = UILabel()
-        label.text = "0"
-        label.textColor = UIColor(red: 0.13, green: 0.16, blue: 0.12, alpha: 1.00)
-
-        label.font = sfRounded(size: 18)
-        return label
-    }()
-    
-    lazy var coinsDay: UILabel = {
-        var label = UILabel()
-        label.text = "0"
-        label.textColor = UIColor(red: 0.13, green: 0.16, blue: 0.12, alpha: 1.00)
-
-        label.font = sfRounded(size: 18)
         return label
     }()
 
@@ -82,32 +70,24 @@ class InformationsView: UIView {
         }
     }
     
-    func setupInformations(petName: String?, message: String?, coins: String?, coinsDay: String?){
+    func setupInformations(petName: String?, message: String?, steps: Int?, multiplierSteps multiplier: Int = 11){
         if let petName = petName {
             self.petName.text = petName
         }
         if let message = message {
             self.messageDay.text = message
         }
-        if let coins = coins {
-            self.coinsDay.text = coins
-        }
-        if let coinsDay = coinsDay {
-            self.coinsDay.text = coinsDay
+        if let steps = steps {
+            self.stepsToCoin.configureDaySteps(daySteps: steps, multiplier: multiplier)
         }
     }
     
     func setupInformations(){
-        let stackViewStepCoins = UIStackView(arrangedSubviews: [coinsDay, stepsDay])
-        stackViewStepCoins.translatesAutoresizingMaskIntoConstraints = false
-        stackViewStepCoins.axis = .horizontal
-        stackViewStepCoins.distribution = .fillEqually
         
-        let stackViewInformations = UIStackView(arrangedSubviews: [petName, messageDay, today, stackViewStepCoins])
+        let stackViewInformations = UIStackView(arrangedSubviews: [petName, messageDay, today, stepsToCoin])
         stackViewInformations.translatesAutoresizingMaskIntoConstraints = false
         stackViewInformations.axis = .vertical
-        stackViewInformations.distribution = .equalCentering
-        
+
         stackViewInformations.setCustomSpacing(18, after: petName)
         stackViewInformations.setCustomSpacing(24, after: messageDay)
         stackViewInformations.setCustomSpacing(12, after: today)
@@ -116,7 +96,7 @@ class InformationsView: UIView {
         
         NSLayoutConstraint.activate([
             stackViewInformations.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            stackViewInformations.widthAnchor.constraint(equalTo: self.widthAnchor)
+            stackViewInformations.widthAnchor.constraint(equalTo: self.widthAnchor),
         ])
     }
 }

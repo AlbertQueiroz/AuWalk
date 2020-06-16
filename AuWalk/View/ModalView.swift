@@ -9,22 +9,32 @@
 import UIKit
 
 class ModalView: UIView {
+    
+    var handleArea: UIView = {
+        let view = UIView()
+        return view
+    }()
 
     var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl()
-        segmentedControl.backgroundColor = .red
+        segmentedControl.insertSegment(withTitle: nil, at: 0, animated: true)
+        segmentedControl.insertSegment(withTitle: nil, at: 1, animated: true)
+        segmentedControl.insertSegment(withTitle: nil, at: 2, animated: true)
+        segmentedControl.insertSegment(withTitle: nil, at: 3, animated: true)
+        segmentedControl.selectedSegmentIndex = 0
         return segmentedControl
     }()
     
     var tableView: UITableView = {
        let tableView = UITableView()
-        tableView.backgroundColor = .blue
+        tableView.backgroundColor = .white
         return tableView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupModal()
+        setupHandleArea()
         setupSegmentedControl()
         setupTableView()
     }
@@ -34,16 +44,37 @@ class ModalView: UIView {
     }
     
     func setupModal() {
-        self.backgroundColor = .white
-        self.layer.cornerRadius = 30
+        self.backgroundColor = .darkGray
+        self.layer.cornerRadius = 16
+    }
+    
+    func setupHandleArea() {
+        self.addSubview(self.handleArea)
+        self.handleArea.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.handleArea.topAnchor.constraint(equalTo: self.topAnchor),
+            self.handleArea.heightAnchor.constraint(equalToConstant: 90),
+            self.handleArea.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.handleArea.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
     }
     
     func setupSegmentedControl() {
+        if #available(iOS 13.0, *) {
+            self.segmentedControl.selectedSegmentTintColor = .white
+        } else {
+            self.segmentedControl.tintColor = .white
+        }
+        
+        
+        segmentedControl.alpha = 0
         self.addSubview(segmentedControl)
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.segmentedControl.topAnchor.constraint(equalTo: self.topAnchor, constant: 24),
-            self.widthAnchor.constraint(equalToConstant: 300)
+            self.segmentedControl.topAnchor.constraint(equalTo: self.topAnchor),
+            self.segmentedControl.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.segmentedControl.widthAnchor.constraint(equalToConstant: 260),
+            self.segmentedControl.heightAnchor.constraint(equalToConstant: 90)
         ])
     }
     
@@ -51,10 +82,10 @@ class ModalView: UIView {
         self.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.topAnchor.constraint(equalTo: self.topAnchor),
-            self.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            self.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+            self.tableView.topAnchor.constraint(equalTo: self.segmentedControl.bottomAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -4),
+            self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
         ])
     }
     
