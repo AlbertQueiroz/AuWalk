@@ -36,14 +36,13 @@ class ModalViewController: UIViewController {
         modalView.collectionView.register(StoreCell.self, forCellWithReuseIdentifier: cellId)
         modalView.collectionView.allowsSelection = false
         modalView.collectionView.backgroundColor = .greenLight
-    
+        
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         StoreRepository().read(category: StoreAPI.allItems) { [weak self] (items) in
             self?.items = items
         }
-    }
-
-        
     }
     
 }
