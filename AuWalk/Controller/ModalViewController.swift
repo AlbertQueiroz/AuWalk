@@ -14,6 +14,13 @@ class ModalViewController: UIViewController {
     
     var modalView = ModalView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 60, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4))
     
+    var items: [Item] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.modalView.tableView.reloadData()
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +37,11 @@ class ModalViewController: UIViewController {
         modalView.collectionView.allowsSelection = false
         modalView.collectionView.backgroundColor = .greenLight
     
-        
+    override func viewDidAppear(_ animated: Bool) {
+        StoreRepository().read(category: StoreAPI.allItems) { [weak self] (items) in
+            self?.items = items
+        }
+    }
 
         
     }
@@ -42,12 +53,13 @@ extension ModalViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return items.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = Item(name: "Mamadeira", description: "Esse item serve para saciar a fome do seu pet.", price: 400, category: "1")
+        let item = items[indexPath.row]
         let cell = ItemCell(of: item)
+        cell.selectionStyle = .none
         return cell
     }
     

@@ -1,23 +1,23 @@
 {
   "images" : [
     {
-      "filename" : "hygieneIcon.png",
       "idiom" : "universal",
+      "filename" : "hygieneIcon.png",
       "scale" : "1x"
     },
     {
-      "filename" : "hygieneIcon@2x.png",
       "idiom" : "universal",
+      "filename" : "hygieneIcon@2x.png",
       "scale" : "2x"
     },
     {
-      "filename" : "hygieneIcon@3x.png",
       "idiom" : "universal",
+      "filename" : "hygieneIcon@3x.png",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "author" : "xcode",
-    "version" : 1
+    "version" : 1,
+    "author" : "xcode"
   }
 }
