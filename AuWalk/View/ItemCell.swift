@@ -30,7 +30,7 @@ class ItemCell: UITableViewCell {
         let im = UIImageView()
         im.translatesAutoresizingMaskIntoConstraints = false
         im.contentMode = .scaleAspectFit
-        im.image = UIImage(named: item!.name.lowercased())?.withAlignmentRectInsets(UIEdgeInsets(top: -10, left: 0, bottom: -10, right: 0))
+        im.image = UIImage(named: item!.name.lowercased())
         
         return im
     }()
