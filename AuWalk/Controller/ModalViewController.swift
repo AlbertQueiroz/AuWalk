@@ -10,18 +10,41 @@ import UIKit
 
 class ModalViewController: UIViewController {
     
-    var modalView = ModalView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 90, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4))
+    let cellId = "cellId"
     
+    var modalView = ModalView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 60, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4))
+    
+    var items: [Item] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.modalView.tableView.reloadData()
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = modalView
+        
         self.modalView.tableView.delegate = self
         self.modalView.tableView.dataSource = self
         self.modalView.tableView.separatorStyle = .none
+        
+        self.modalView.collectionView.delegate = self
+        self.modalView.collectionView.dataSource = self
+        
+        modalView.collectionView.register(StoreCell.self, forCellWithReuseIdentifier: cellId)
+        modalView.collectionView.allowsSelection = false
+        modalView.collectionView.backgroundColor = .greenLight
+        
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        StoreRepository().read(category: StoreAPI.allItems) { [weak self] (items) in
+            self?.items = items
+        }
     }
     
-
 }
 
 
@@ -29,12 +52,13 @@ extension ModalViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return items.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = Item(name: "Mamadeira", description: "Esse item serve para saciar a fome do seu pet.", price: 400, category: "1")
+        let item = items[indexPath.row]
         let cell = ItemCell(of: item)
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -44,3 +68,58 @@ extension ModalViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+        
+    //- first it allows selection then selects the first cell (FOR NOW...)
+    //- then it changes the background of everything to disabled color except the selected cell
+    func selectCellExpanded() {
+        modalView.collectionView.allowsSelection = true
+        
+        let selectedIndexPath = IndexPath(item: 0, section: 0)
+        modalView.collectionView.selectItem(at: selectedIndexPath, animated: true, scrollPosition: .bottom)
+        modalView.handleArea.backgroundColor = .greenDisabledCells
+        modalView.collectionView.backgroundColor = .greenDisabledCells
+
+    }
+    
+    //sets colors to greenLight then erases background of cells to prevent them from keeping selected when collapsed
+    func diselectCellCollapsing() {
+        for cell in modalView.collectionView.visibleCells {
+            cell.backgroundColor = .clear
+        }
+        modalView.collectionView.backgroundColor = .greenLight
+        modalView.handleArea.backgroundColor = .greenLight
+        modalView.collectionView.allowsSelection = false
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! StoreCell
+        switch indexPath.item {
+            case 0:
+                cell.arrange(of: .heart)
+            case 1:
+                cell.arrange(of: .food)
+            case 2:
+                cell.arrange(of: .hygiene)
+            case 3:
+                cell.arrange(of: .energy)
+            default:
+                fatalError("Case doesn't exist.")
+        }
+
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: collectionView.frame.width / 4, height: collectionView.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+}

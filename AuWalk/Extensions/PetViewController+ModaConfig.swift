@@ -33,6 +33,8 @@ extension PetViewController {
         
         modalVC.modalView.handleArea.addGestureRecognizer(tapGestureRecognizer)
         modalVC.modalView.handleArea.addGestureRecognizer(panGestureRecognizer)
+        //modalVC.modalView.collectionView.addGestureRecognizer(panGestureRecognizer)
+        
         
         
     }
@@ -97,18 +99,18 @@ extension PetViewController {
             cornerRadiusAnimator.startAnimation()
             runningAnimations.append(cornerRadiusAnimator)
             
-            let segmentedControlAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
+            //calls different functions depending on the state of the modal
+            let collectionViewAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
                 switch state {
                 case .expanded:
-                    self.modalVC.modalView.segmentedControl.alpha = 1
+                    self.modalVC.selectCellExpanded()
                 case .collapsed:
-                    self.modalVC.modalView.segmentedControl.alpha = 0
+                    self.modalVC.diselectCellCollapsing()
                 }
             }
             
-            segmentedControlAnimator.startAnimation()
-            runningAnimations.append(segmentedControlAnimator)
-            
+            collectionViewAnimator.startAnimation()
+            runningAnimations.append(collectionViewAnimator)
         }
     }
     
