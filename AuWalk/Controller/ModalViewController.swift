@@ -29,6 +29,8 @@ class ModalViewController: UIViewController {
         modalView.collectionView.register(StoreCell.self, forCellWithReuseIdentifier: cellId)
         modalView.collectionView.allowsSelection = false
         modalView.collectionView.backgroundColor = .greenLight
+    
+        
 
         
     }

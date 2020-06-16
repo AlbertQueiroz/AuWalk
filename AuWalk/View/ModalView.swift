@@ -112,7 +112,8 @@ class StoreCell: UICollectionViewCell {
                 setupHygiene()
             case .food:
                 setupFood()
-        }    
+        }
+        //initAnimate()
     }
     
     func setupHeart() {
@@ -155,7 +156,7 @@ class StoreCell: UICollectionViewCell {
             backgroundColor = isHighlighted ? UIColor.greenLight : UIColor.clear
         }
     }
-        
+    
     func setupContraints() {
 
         NSLayoutConstraint.activate([
@@ -165,6 +166,24 @@ class StoreCell: UICollectionViewCell {
         
         ])
     }
+    
+    
+    @objc func initAnimate() {
+        card.progressCircle.add(animatingCircle(fromValue: 0, toValue: 1), forKey: "Stroke End")
+    }
+    
+    func animatingCircle (fromValue: Float, toValue: Float) -> CABasicAnimation {
+        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        
+        basicAnimation.toValue = toValue
+        basicAnimation.fromValue = fromValue
+        basicAnimation.duration = 1
+        basicAnimation.fillMode = .forwards
+        basicAnimation.isRemovedOnCompletion = false
+        
+        return basicAnimation
+    }
+    
 }
 
 enum CardType {

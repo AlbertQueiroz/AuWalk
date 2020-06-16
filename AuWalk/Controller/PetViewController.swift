@@ -45,6 +45,8 @@ class PetViewController: UIViewController {
         //setField()
         
     }
+    
+    
     func setField () {
         view.addSubview(circle)
         circle.backgroundColor = .greenLight
