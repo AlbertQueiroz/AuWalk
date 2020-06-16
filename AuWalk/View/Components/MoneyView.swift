@@ -50,6 +50,10 @@ class MoneyView: UIView {
         moneyLabel.text = String(amount)
     }
     
+    func updateAmount(amount: Int) {
+        self.moneyLabel.text = String(amount)
+    }
+    
     func setupViews() {
         addSubview(coinView)
         addSubview(moneyLabel)

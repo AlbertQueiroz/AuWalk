@@ -13,6 +13,7 @@ class TopBar: UIView {
     let pawMoney: MoneyView = {
         let mv = MoneyView(coin: UIImage(named: "dogpaw"), amount: 3400)
         mv.translatesAutoresizingMaskIntoConstraints = false
+        mv.coinView.tintColor = .brownButton
         
         return mv
     }()
@@ -28,8 +29,9 @@ class TopBar: UIView {
         let sb = UIButton()
         sb.translatesAutoresizingMaskIntoConstraints = false
         sb.setImage(UIImage(named: "chart.bar.fill"), for: .normal)
-        sb.backgroundColor = .brown
+        sb.backgroundColor = .yellowButton
         sb.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        sb.imageView?.tintColor = .brownButton
         
         return sb
     }()
@@ -38,8 +40,9 @@ class TopBar: UIView {
         let pb = UIButton()
         pb.translatesAutoresizingMaskIntoConstraints = false
         pb.setImage(UIImage(named: "person.fill"), for: .normal)
-        pb.backgroundColor = .brown
+        pb.backgroundColor = .yellowButton
         pb.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        pb.imageView?.tintColor = .brownButton
         
         return pb
     }()

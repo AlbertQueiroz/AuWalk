@@ -18,19 +18,23 @@ class ModalViewController: UIViewController {
         self.view = modalView
         self.modalView.tableView.delegate = self
         self.modalView.tableView.dataSource = self
+        self.modalView.tableView.separatorStyle = .none
     }
     
 
 }
 
+
 extension ModalViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = .clear
+        let item = Item(name: "Mamadeira", description: "Esse item serve para saciar a fome do seu pet.", price: 400, category: "1")
+        let cell = ItemCell(of: item)
         return cell
     }
     
@@ -39,3 +43,4 @@ extension ModalViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
