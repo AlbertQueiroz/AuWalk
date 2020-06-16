@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9BB4057D2497A36100CF8001 /* StepsToCoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4057C2497A36100CF8001 /* StepsToCoinsView.swift */; };
+		9BE79315249128B1004496A4 /* InformationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE79314249128B1004496A4 /* InformationsView.swift */; };
 		AEA185F02497B0B5001358A3 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA185EF2497B0B5001358A3 /* HTTP.swift */; };
 		AEA185F22497B2BB001358A3 /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA185F12497B2BB001358A3 /* StoreAPI.swift */; };
 		AEA185F42497B392001358A3 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA185F32497B391001358A3 /* Router.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9BB4057C2497A36100CF8001 /* StepsToCoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsToCoinsView.swift; sourceTree = "<group>"; };
+		9BE79314249128B1004496A4 /* InformationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsView.swift; sourceTree = "<group>"; };
 		AEA185EF2497B0B5001358A3 /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		AEA185F12497B2BB001358A3 /* StoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAPI.swift; sourceTree = "<group>"; };
 		AEA185F32497B391001358A3 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 				E9089FEC24906215005FB179 /* TopBar.swift */,
 				AEC258AF24910CCE006B7F95 /* PetView.swift */,
 				AEC258B324911F32006B7F95 /* ModalView.swift */,
+				9BE79314249128B1004496A4 /* InformationsView.swift */,
 				E945140B2492F89A003D0F70 /* ItemCell.swift */,
 			);
 			path = View;
@@ -228,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				E9089FEF24910485005FB179 /* MoneyView.swift */,
+				9BB4057C2497A36100CF8001 /* StepsToCoinsView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -375,12 +381,14 @@
 				EC88B1582491AA4A00FFBC0D /* Item.swift in Sources */,
 				AEC258B024910CCE006B7F95 /* PetView.swift in Sources */,
 				E907AA6E2491DB3D000F36EA /* PetViewController.swift in Sources */,
+				9BB4057D2497A36100CF8001 /* StepsToCoinsView.swift in Sources */,
 				ECED3F5A2491286300DACECA /* HomePetStatusView.swift in Sources */,
 				E945140C2492F89A003D0F70 /* ItemCell.swift in Sources */,
 				AEC25871248FC038006B7F95 /* AppDelegate.swift in Sources */,
 				E907AA6B2491293C000F36EA /* MoneyView.swift in Sources */,
 				EC3CD9912497BA8D00487CAF /* FileManager.swift in Sources */,
 				AEC258B424911F32006B7F95 /* ModalView.swift in Sources */,
+				9BE79315249128B1004496A4 /* InformationsView.swift in Sources */,
 				EC3CD98F2497BA3300487CAF /* userData.swift in Sources */,
 				AEA185F42497B392001358A3 /* Router.swift in Sources */,
 				AEC258BB2491CC32006B7F95 /* PetViewController+ModaConfig.swift in Sources */,

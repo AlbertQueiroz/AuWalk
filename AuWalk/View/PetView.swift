@@ -28,6 +28,7 @@ class PetView: UIView {
         super.init(frame: frame)
         setupBackground()
         setupDog()
+        setupInformations()
     }
     
     required init?(coder: NSCoder) {
@@ -56,5 +57,18 @@ class PetView: UIView {
         ])
     }
     
+    func setupInformations() {
+        let informations = InformationsView()
+        informations.setupInformations(petName: "Boby", message: "Você já doou para algum abrigo hoje? Salve meus amiguinhos!", steps: 76, multiplierSteps: 61)
+        self.addSubview(informations)
+        
+        informations.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            informations.topAnchor.constraint(equalTo: self.dog.bottomAnchor, constant: 18),
+            informations.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -300),
+            informations.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            informations.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+        ])
+    }
 
 }
