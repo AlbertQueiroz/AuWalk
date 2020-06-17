@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9BB4057D2497A36100CF8001 /* StepsToCoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4057C2497A36100CF8001 /* StepsToCoinsView.swift */; };
 		9BE79315249128B1004496A4 /* InformationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE79314249128B1004496A4 /* InformationsView.swift */; };
+		AE109D07249A587000E19177 /* StepsToCoinsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE109D06249A587000E19177 /* StepsToCoinsViewTests.swift */; };
 		AEA185F02497B0B5001358A3 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA185EF2497B0B5001358A3 /* HTTP.swift */; };
 		AEA185F22497B2BB001358A3 /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA185F12497B2BB001358A3 /* StoreAPI.swift */; };
 		AEA185F42497B392001358A3 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA185F32497B391001358A3 /* Router.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		9BB4057C2497A36100CF8001 /* StepsToCoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsToCoinsView.swift; sourceTree = "<group>"; };
 		9BE79314249128B1004496A4 /* InformationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsView.swift; sourceTree = "<group>"; };
+		AE109D06249A587000E19177 /* StepsToCoinsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsToCoinsViewTests.swift; sourceTree = "<group>"; };
 		AEA185EF2497B0B5001358A3 /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		AEA185F12497B2BB001358A3 /* StoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAPI.swift; sourceTree = "<group>"; };
 		AEA185F32497B391001358A3 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				AEC25887248FC040006B7F95 /* AuWalkTests.swift */,
+				AE109D06249A587000E19177 /* StepsToCoinsViewTests.swift */,
 				AEC25889248FC040006B7F95 /* Info.plist */,
 			);
 			path = AuWalkTests;
@@ -405,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE109D07249A587000E19177 /* StepsToCoinsViewTests.swift in Sources */,
 				AEC25888248FC040006B7F95 /* AuWalkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
