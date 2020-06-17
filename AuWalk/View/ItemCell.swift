@@ -30,13 +30,13 @@ class ItemCell: UITableViewCell {
         let im = UIImageView()
         im.translatesAutoresizingMaskIntoConstraints = false
         im.contentMode = .scaleAspectFit
-        //MARK: GAMBIARRA
-        if item!.name == "Ração" {
-            im.image = UIImage(named: "racao")
-        } else {
-            im.image = UIImage(named: item!.name.lowercased())
-        }
-        
+//        //MARK: GAMBIARRA
+//        if item!.name == "Ração" {
+//            im.image = UIImage(named: "racao")
+//        } else {
+//            im.image = UIImage(named: item!.name.lowercased())
+//        }
+        im.image = UIImage(named: item!.image)
         return im
     }()
     

@@ -30,7 +30,7 @@ class StepsToCoinsView: UIView {
     }()
     
     lazy var coinsIcon: UIImageView = {
-        let icon = UIImageView(image: UIImage(named: "stepCoin"))
+        let icon = UIImageView(image: UIImage(named: "dogpaw"))
         icon.tintColor = .brownCoin
         icon.translatesAutoresizingMaskIntoConstraints = false
         icon.contentMode = .scaleAspectFit
@@ -93,7 +93,8 @@ class StepsToCoinsView: UIView {
             
             coinsIcon.leadingAnchor.constraint(equalTo: arrowIcon.trailingAnchor, constant: 16),
             coinsIcon.centerYAnchor.constraint(equalTo: arrowIcon.centerYAnchor),
-            
+            coinsIcon.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
+            coinsIcon.heightAnchor.constraint(equalTo: coinsLabel.heightAnchor),
             
             coinsLabel.leadingAnchor.constraint(equalTo: coinsIcon.trailingAnchor, constant: 8),
             coinsLabel.centerYAnchor.constraint(equalTo: arrowIcon.centerYAnchor),
