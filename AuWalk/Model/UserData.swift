@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct userData : Encodable, Decodable {
+struct UserData : Encodable, Decodable {
     
     var steps : Int?
     var normalCoinsTotal : Int?
