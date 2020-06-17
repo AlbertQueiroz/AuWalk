@@ -64,10 +64,10 @@ class PetView: UIView {
         
         informations.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            informations.topAnchor.constraint(equalTo: self.dog.bottomAnchor, constant: 18),
+            informations.topAnchor.constraint(equalTo: self.dog.bottomAnchor, constant: 32),
             informations.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -300),
-            informations.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            informations.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            informations.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 80),
+            informations.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -80),
         ])
     }
 
