@@ -10,11 +10,23 @@ import UIKit
 
 class StatisticsViewController: UIViewController {
 
+    let statisticsView = StatisticsView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupBackButtonAction()
 
-        self.view.backgroundColor = .red
+        //View
+        self.view = statisticsView
+        
     }
     
+    func setupBackButtonAction() {
+        self.statisticsView.backButton.addTarget(self, action: #selector(close), for: .touchUpInside)
+    }
+    
+    @objc func close() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 
 }

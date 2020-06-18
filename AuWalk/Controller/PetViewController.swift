@@ -36,6 +36,7 @@ class PetViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
@@ -46,14 +47,6 @@ class PetViewController: UIViewController {
         setupViews()
         setupTopBar()
         
-        //setCirclePositions(fromValue: view.frame.size.width)
-        //setField()
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func setField () {
