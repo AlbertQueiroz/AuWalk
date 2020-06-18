@@ -20,6 +20,7 @@ class StepCounterModel {
         } else {
             print("HKStore isn't available.")
         }
+        
         checkHKAvailability()
         
     }
