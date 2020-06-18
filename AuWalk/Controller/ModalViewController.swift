@@ -10,6 +10,8 @@ import UIKit
 
 class ModalViewController: UIViewController {
     
+     let stepCounter = StepCounterModel()
+    
     let cellId = "cellId"
     
     var modalView = ModalView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 72, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4))
