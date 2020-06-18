@@ -23,7 +23,6 @@ class StepCounterModel {
         
         checkHKAvailability()
         
-        
     }
     
     func retrieveStepCount() {
