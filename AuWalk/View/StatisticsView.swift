@@ -17,11 +17,22 @@ class StatisticsView: UIView {
         
         return button
     }()
+    
+    var segmentedControl: UISegmentedControl = {
+       let segmented = UISegmentedControl()
+        segmented.translatesAutoresizingMaskIntoConstraints = false
+        segmented.insertSegment(withTitle: "Estatísticas", at: 0, animated: true)
+        segmented.insertSegment(withTitle: "Pets", at: 1, animated: true)
+        segmented.selectedSegmentIndex = 0
+
+        return segmented
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .red
+        self.backgroundColor = .greenLight
         self.setupBackButton()
+        self.setupSegmentedControl()
     }
     
     required init?(coder: NSCoder) {
@@ -35,6 +46,14 @@ class StatisticsView: UIView {
             self.backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
             self.backButton.heightAnchor.constraint(equalToConstant: 64),
             self.backButton.widthAnchor.constraint(equalToConstant: 64)
+            
+        ])
+    }
+    func setupSegmentedControl() {
+        self.addSubview(segmentedControl)
+        NSLayoutConstraint.activate([
+            self.segmentedControl.topAnchor.constraint(equalTo: self.backButton.bottomAnchor, constant: 4),
+            self.segmentedControl.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
         ])
     }
