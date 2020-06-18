@@ -34,6 +34,11 @@ class PetViewController: UIViewController {
     
     let circle = HomePetStatusView()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = petView
@@ -46,6 +51,10 @@ class PetViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
     
     func setField () {
         view.addSubview(circle)
@@ -62,6 +71,7 @@ class PetViewController: UIViewController {
     }
     
     func setupTopBar() {
+        topBar.statsButton.addTarget(self, action: #selector(openStatisticsVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
         
@@ -70,6 +80,11 @@ class PetViewController: UIViewController {
             topBar.heightAnchor.constraint(equalToConstant: 40)
             
         ])
+    }
+    
+    @objc func openStatisticsVC() {
+        let destination = StatisticsViewController()
+        self.navigationController?.pushViewController(destination, animated: true)
     }
     
     public func setCirclePositions(fromValue: CGFloat){

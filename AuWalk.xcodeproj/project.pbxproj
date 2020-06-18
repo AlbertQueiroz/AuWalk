@@ -23,6 +23,7 @@
 		AEC258B424911F32006B7F95 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258B324911F32006B7F95 /* ModalView.swift */; };
 		AEC258B92491B1BC006B7F95 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258B82491B1BB006B7F95 /* ModalViewController.swift */; };
 		AEC258BB2491CC32006B7F95 /* PetViewController+ModaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC258BA2491CC32006B7F95 /* PetViewController+ModaConfig.swift */; };
+		AEC48E6E249B99E5009BC30B /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC48E6D249B99E5009BC30B /* StatisticsViewController.swift */; };
 		E907AA6B2491293C000F36EA /* MoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9089FEF24910485005FB179 /* MoneyView.swift */; };
 		E907AA6E2491DB3D000F36EA /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E907AA6D2491DB3D000F36EA /* PetViewController.swift */; };
 		E9089FED24906215005FB179 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9089FEC24906215005FB179 /* TopBar.swift */; };
@@ -75,6 +76,7 @@
 		AEC258B324911F32006B7F95 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		AEC258B82491B1BB006B7F95 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		AEC258BA2491CC32006B7F95 /* PetViewController+ModaConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetViewController+ModaConfig.swift"; sourceTree = "<group>"; };
+		AEC48E6D249B99E5009BC30B /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		E907AA6D2491DB3D000F36EA /* PetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetViewController.swift; sourceTree = "<group>"; };
 		E9089FEC24906215005FB179 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		E9089FEF24910485005FB179 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			children = (
 				AEC258B82491B1BB006B7F95 /* ModalViewController.swift */,
 				E907AA6D2491DB3D000F36EA /* PetViewController.swift */,
+				AEC48E6D249B99E5009BC30B /* StatisticsViewController.swift */,
 				EC3CD9902497BA8D00487CAF /* FileManager.swift */,
 			);
 			path = Controller;
@@ -390,6 +393,7 @@
 				AEC258B424911F32006B7F95 /* ModalView.swift in Sources */,
 				9BE79315249128B1004496A4 /* InformationsView.swift in Sources */,
 				EC3CD98F2497BA3300487CAF /* userData.swift in Sources */,
+				AEC48E6E249B99E5009BC30B /* StatisticsViewController.swift in Sources */,
 				AEA185F42497B392001358A3 /* Router.swift in Sources */,
 				AEC258BB2491CC32006B7F95 /* PetViewController+ModaConfig.swift in Sources */,
 				AEC258B92491B1BC006B7F95 /* ModalViewController.swift in Sources */,
