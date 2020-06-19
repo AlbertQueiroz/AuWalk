@@ -19,20 +19,26 @@ class StatisticsView: UIView {
     }()
     
     var segmentedControl: UISegmentedControl = {
-       let segmented = UISegmentedControl()
+        let segmented = UISegmentedControl()
         segmented.translatesAutoresizingMaskIntoConstraints = false
         segmented.insertSegment(withTitle: "Estatísticas", at: 0, animated: true)
         segmented.insertSegment(withTitle: "Pets", at: 1, animated: true)
         segmented.selectedSegmentIndex = 0
-
+        segmented.addTarget(self, action: #selector(segmentedDidChange), for: .valueChanged)
+        
         return segmented
-    }()
+        }()
+    
+    
+    var collectionView: UICollectionView?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .greenLight
         self.setupBackButton()
         self.setupSegmentedControl()
+        self.setupCollectionView()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -49,13 +55,91 @@ class StatisticsView: UIView {
             
         ])
     }
+    
     func setupSegmentedControl() {
         self.addSubview(segmentedControl)
         NSLayoutConstraint.activate([
-            self.segmentedControl.topAnchor.constraint(equalTo: self.backButton.bottomAnchor, constant: 4),
+            self.segmentedControl.topAnchor.constraint(equalTo: self.topAnchor, constant: 64),
             self.segmentedControl.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
         ])
     }
+    
+    @objc func segmentedDidChange() {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0), at: .left, animated: true)
+            print(0)
+        case 1:
+            collectionView?.scrollToItem(at: IndexPath(row: 1, section: 0), at: .right, animated: true)
+            print(1)
+        default:
+            return
+        }
+    }
 
+}
+
+extension StatisticsView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func setupCollectionView() {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.headerReferenceSize = CGSize(width: self.frame.size.width, height: 100)
+        self.collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: flowLayout)
+        collectionView?.translatesAutoresizingMaskIntoConstraints = false
+        collectionView?.dataSource = self
+        collectionView?.delegate = self
+        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "StatisticsViewCollectionViewCell")
+        collectionView?.backgroundColor = .blue
+        collectionView?.dragInteractionEnabled = true
+        collectionView?.isPagingEnabled = true
+        collectionView?.showsHorizontalScrollIndicator = false
+        
+        self.addSubview(collectionView!)
+        NSLayoutConstraint.activate([
+            self.collectionView!.topAnchor.constraint(equalTo: self.segmentedControl.bottomAnchor),
+            self.collectionView!.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.collectionView!.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.collectionView!.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ])
+    }
+    
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        switch collectionView?.indexPathsForSelectedItems?.endIndex {
+        case 0:
+            segmentedControl.selectedSegmentIndex = 1
+        case 1:
+            segmentedControl.selectedSegmentIndex = 0
+        default:
+            return
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemSize = CGSize(width: self.bounds.width, height: self.collectionView!.bounds.height)
+        return itemSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "StatisticsViewCollectionViewCell", for: indexPath)
+        switch indexPath.row {
+        case 0:
+            cell.backgroundColor = .red
+        case 1:
+            cell.backgroundColor = .blue
+        default:
+            return cell
+        }
+        
+        return cell
+    }
+    
+    
 }
