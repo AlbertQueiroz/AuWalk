@@ -11,6 +11,20 @@ import UIKit
 class ModalViewController: UIViewController {
     
     let cellId = "cellId"
+    var currentCell : CAShapeLayer?
+    
+    var managerData = ManagerData(steps: 0, normalCoinsTotal: 0, goldenCoinsTotal: 0, levelPet: 0, levelPersonal: 0, statusHeart: 0, statusFood: 0, statusHygiene: 0, statusEnergy: 0)
+
+
+    func animatingCircle (layer: CAShapeLayer, from: Float, to: Float) -> Void {
+        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        basicAnimation.toValue = to
+        basicAnimation.fromValue = from
+        basicAnimation.duration = 1
+        basicAnimation.fillMode = .forwards
+        basicAnimation.isRemovedOnCompletion = false
+        layer.add(basicAnimation, forKey: "StrokeEnd")
+    }
     
     var modalView = ModalView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 72, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4))
     
@@ -36,6 +50,8 @@ class ModalViewController: UIViewController {
         modalView.collectionView.register(StoreCell.self, forCellWithReuseIdentifier: cellId)
         modalView.collectionView.allowsSelection = false
         modalView.collectionView.backgroundColor = .greenLight
+    
+        
         
     }
 
@@ -59,6 +75,9 @@ extension ModalViewController: UITableViewDelegate, UITableViewDataSource {
         let item = items[indexPath.row]
         let cell = ItemCell(of: item)
         cell.selectionStyle = .none
+        cell.shapeLayer = currentCell
+        cell.animatingCircle = self.animatingCircle
+        cell.delegate = managerData
         return cell
     }
     
@@ -100,7 +119,12 @@ extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath.row {
+       
+        let cell = collectionView.cellForItem(at: indexPath) as! StoreCell
+        
+        currentCell = cell.card.progressCircle 
+        
+        switch indexPath.row{
         case 0:
             StoreRepository().read(category: StoreAPI.health) { [weak self] (items) in
                 self?.items = items
@@ -131,12 +155,17 @@ extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSou
         switch indexPath.item {
             case 0:
                 cell.arrange(of: .heart)
+                currentCell = cell.card.progressCircle
+                animatingCircle(layer: cell.card.progressCircle, from: 0, to: managerData.statusHeart)
             case 1:
                 cell.arrange(of: .food)
+            animatingCircle(layer: cell.card.progressCircle, from: 0, to: managerData.statusFood)
             case 2:
                 cell.arrange(of: .hygiene)
+            animatingCircle(layer: cell.card.progressCircle, from: 0, to: managerData.statusHygiene)
             case 3:
                 cell.arrange(of: .energy)
+            animatingCircle(layer: cell.card.progressCircle, from: 0, to: managerData.statusEnergy)
             default:
                 fatalError("Case doesn't exist.")
         }

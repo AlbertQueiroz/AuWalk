@@ -58,7 +58,6 @@ class HomePetStatusView : UIView {
         return card
         
     }()
-    
     override init(frame: CGRect) {
            super.init(frame: frame)
            setupView()
@@ -72,8 +71,8 @@ class HomePetStatusView : UIView {
        func setupView(){
            addSubview(cardFood)
             addSubview(cardHeart)
-            addSubview(cardHygiene)
-            addSubview(cardEnergy)
+        addSubview(cardHygiene)
+        addSubview(cardEnergy)
        }
     
 }

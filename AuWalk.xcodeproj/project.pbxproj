@@ -27,6 +27,7 @@
 		E907AA6E2491DB3D000F36EA /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E907AA6D2491DB3D000F36EA /* PetViewController.swift */; };
 		E9089FED24906215005FB179 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9089FEC24906215005FB179 /* TopBar.swift */; };
 		E945140C2492F89A003D0F70 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945140B2492F89A003D0F70 /* ItemCell.swift */; };
+		EC060F05249BAFDE00398EDD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC060F04249BAFDE00398EDD /* DataManager.swift */; };
 		EC3CD98F2497BA3300487CAF /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3CD98E2497BA3300487CAF /* userData.swift */; };
 		EC3CD9912497BA8D00487CAF /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3CD9902497BA8D00487CAF /* FileManager.swift */; };
 		EC88B1582491AA4A00FFBC0D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC88B1572491AA4A00FFBC0D /* Item.swift */; };
@@ -79,6 +80,7 @@
 		E9089FEC24906215005FB179 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		E9089FEF24910485005FB179 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
 		E945140B2492F89A003D0F70 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		EC060F04249BAFDE00398EDD /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		EC3CD98E2497BA3300487CAF /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		EC3CD9902497BA8D00487CAF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		EC88B1572491AA4A00FFBC0D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				EC88B1572491AA4A00FFBC0D /* Item.swift */,
 				EC3CD98E2497BA3300487CAF /* userData.swift */,
+				EC060F04249BAFDE00398EDD /* DataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEA185F22497B2BB001358A3 /* StoreAPI.swift in Sources */,
+				EC060F05249BAFDE00398EDD /* DataManager.swift in Sources */,
 				AEA185F02497B0B5001358A3 /* HTTP.swift in Sources */,
 				EC88B1582491AA4A00FFBC0D /* Item.swift in Sources */,
 				AEC258B024910CCE006B7F95 /* PetView.swift in Sources */,

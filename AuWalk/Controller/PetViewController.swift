@@ -41,9 +41,6 @@ class PetViewController: UIViewController {
         setupViews()
         setupTopBar()
         
-        //setCirclePositions(fromValue: view.frame.size.width)
-        //setField()
-        
     }
     
     
@@ -86,24 +83,6 @@ class PetViewController: UIViewController {
          circle.cardEnergy.imageIconView.frame = CGRect(origin: CGPoint(x: circle.cardEnergy.progressCircle.position.x-10, y: circle.cardEnergy.progressCircle.position.y-10), size: CGSize(width: 20, height: 20))
         
     }
-    
-    @objc func initAnimate() {
-        circle.cardFood.progressCircle.add(animatingCircle(fromValue: 0, toValue: 1), forKey: "Stroke End")
-    }
-    
-    func animatingCircle (fromValue: Float, toValue: Float) -> CABasicAnimation {
-        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        
-        basicAnimation.toValue = toValue
-        basicAnimation.fromValue = fromValue
-        basicAnimation.duration = 1
-        basicAnimation.fillMode = .forwards
-        basicAnimation.isRemovedOnCompletion = false
-        
-        return basicAnimation
-    }
-    
-
     
 }
 

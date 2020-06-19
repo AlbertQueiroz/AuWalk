@@ -12,6 +12,15 @@ class ItemCell: UITableViewCell {
     
     var item: Item?
     
+    weak var delegate : updateDelegate?
+    
+    var animatingCircle : ((_ layer : CAShapeLayer, _ from: Float, _ to: Float) -> Void)?
+    
+    var shapeLayer : CAShapeLayer?
+    
+    var from : Float?
+    var to : Float?
+    
     lazy var descriptionStackView: UIStackView = {
         let dsv = UIStackView()
         dsv.translatesAutoresizingMaskIntoConstraints = false
@@ -65,10 +74,18 @@ class ItemCell: UITableViewCell {
         btn.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 0, right: 10)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         btn.setTitleColor(.black, for: .normal)
-        
+        if let tag = item?.id {btn.tag = tag} else {btn.tag = 999}
+        btn.addTarget(self, action: #selector(useButtonPressed), for: .touchUpInside)
         return btn
     }()
     
+    @objc func useButtonPressed (sender: UIButton){
+        from = delegate?.retornoData(category: item!.category)
+        delegate?.usedItemChanges(category: item!.category ,price: item!.price)
+        to = delegate?.retornoData(category: item!.category)
+        animatingCircle!(self.shapeLayer!, self.from!, self.to!)
+        
+    }
     
     lazy var itemPrice: MoneyView = {
         let ip = MoneyView(coin: UIImage(named: "dogpaw"), amount: item!.price)
@@ -94,7 +111,7 @@ class ItemCell: UITableViewCell {
         setupStackViews()
         setupContraints()
     }
-    
+
     
     func setupStackViews() {
         
