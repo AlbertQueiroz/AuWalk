@@ -20,7 +20,7 @@ class StepCounterModel {
         }
 
         checkHKAvailability()
-        getTodaySteps(completion: printData(data:))
+        getSteps(from: .thisWeek, completion: printData(data:))
         
     }
     
@@ -39,20 +39,31 @@ class StepCounterModel {
     }
     
     
-    func getTodaySteps(completion: @escaping (Double) -> Void) {
+    func getSteps(from date: StepsFromDate, completion: @escaping (Double) -> Void) {
         
         let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)
-        
         let now = Date()
-        let startOfDay = Calendar.current.startOfDay(for: now)
-        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
+        let start: Date
         
-        let query = HKStatisticsQuery(quantityType: stepsQuantityType!, quantitySamplePredicate: predicate, options: .cumulativeSum) { (_, result, _) in
+        
+        switch date {
+            case .today:
+                start = Calendar.current.startOfDay(for: now)
+            case .thisWeek:
+                let thisWeek = Calendar.current.dateInterval(of: .weekOfMonth, for: now)
+                start = thisWeek!.start
+        }
+        
+        let predicate = HKQuery.predicateForSamples(withStart: start, end: now, options: .strictStartDate)
+    
+        let query = HKStatisticsQuery(quantityType: stepsQuantityType!, quantitySamplePredicate: predicate, options: .cumulativeSum) {
+            
+            (_, result, _) in
             
             guard let result = result, let sum = result.sumQuantity() else {
                 completion(0.0)
                 return
-            }
+            }//End guard let
         
             completion(sum.doubleValue(for: HKUnit.count()))
         }
@@ -60,5 +71,13 @@ class StepCounterModel {
         healthStore?.execute(query)
         
     }
+    
+    
+    
+}
+
+enum StepsFromDate {
+    
+    case today, thisWeek
     
 }
