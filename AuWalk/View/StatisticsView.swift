@@ -106,16 +106,11 @@ extension StatisticsView: UICollectionViewDelegate, UICollectionViewDataSource, 
             self.collectionView!.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
-    
-    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        switch collectionView?.indexPathsForSelectedItems?.endIndex {
-        case 0:
-            segmentedControl.selectedSegmentIndex = 1
-        case 1:
-            segmentedControl.selectedSegmentIndex = 0
-        default:
-            return
-        }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageWidth = collectionView!.frame.size.width
+        let currentPage = collectionView!.contentOffset.x / pageWidth
+        segmentedControl.selectedSegmentIndex = Int(currentPage)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -140,6 +135,5 @@ extension StatisticsView: UICollectionViewDelegate, UICollectionViewDataSource, 
         
         return cell
     }
-    
     
 }
