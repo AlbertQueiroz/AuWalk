@@ -20,12 +20,6 @@ class StepCounterModel {
         }
 
         checkHKAvailability()
-        getSteps(from: .thisWeek, completion: printData(data:))
-        
-    }
-    
-    func printData(data: Double) {
-        print("Passos dados: \(data)")
     }
     
     func checkHKAvailability() {
@@ -33,7 +27,7 @@ class StepCounterModel {
         
         healthStore?.requestAuthorization(toShare: nil, read: typesToRead) { (success, error) in
             if !success {
-                print("Reading step data was not allowed.")
+                print("An error occurred while asking for permission to read data.")
             }
         }
     }
@@ -45,7 +39,7 @@ class StepCounterModel {
         let now = Date()
         let start: Date
         
-        
+        //Getting date based on parameter
         switch date {
             case .today:
                 start = Calendar.current.startOfDay(for: now)
@@ -66,18 +60,13 @@ class StepCounterModel {
             }//End guard let
         
             completion(sum.doubleValue(for: HKUnit.count()))
-        }
+        }//End query closure
         
         healthStore?.execute(query)
-        
     }
-    
-    
     
 }
 
 enum StepsFromDate {
-    
     case today, thisWeek
-    
 }
