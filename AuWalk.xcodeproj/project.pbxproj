@@ -28,7 +28,7 @@
 		E9089FED24906215005FB179 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9089FEC24906215005FB179 /* TopBar.swift */; };
 		E945140C2492F89A003D0F70 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945140B2492F89A003D0F70 /* ItemCell.swift */; };
 		E9BB2413249AD0C90017691E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9BB2412249AD0C90017691E /* HealthKit.framework */; };
-		E9BB2415249AE91F0017691E /* StepCounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2414249AE91F0017691E /* StepCounterModel.swift */; };
+		E9BB2415249AE91F0017691E /* StepsCounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2414249AE91F0017691E /* StepsCounterModel.swift */; };
 		EC3CD98F2497BA3300487CAF /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3CD98E2497BA3300487CAF /* userData.swift */; };
 		EC3CD9912497BA8D00487CAF /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3CD9902497BA8D00487CAF /* FileManager.swift */; };
 		EC88B1582491AA4A00FFBC0D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC88B1572491AA4A00FFBC0D /* Item.swift */; };
@@ -83,7 +83,7 @@
 		E945140B2492F89A003D0F70 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		E9BB2410249AD0C90017691E /* AuWalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AuWalk.entitlements; sourceTree = "<group>"; };
 		E9BB2412249AD0C90017691E /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		E9BB2414249AE91F0017691E /* StepCounterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCounterModel.swift; sourceTree = "<group>"; };
+		E9BB2414249AE91F0017691E /* StepsCounterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsCounterModel.swift; sourceTree = "<group>"; };
 		EC3CD98E2497BA3300487CAF /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		EC3CD9902497BA8D00487CAF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		EC88B1572491AA4A00FFBC0D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 			children = (
 				EC88B1572491AA4A00FFBC0D /* Item.swift */,
 				EC3CD98E2497BA3300487CAF /* userData.swift */,
-				E9BB2414249AE91F0017691E /* StepCounterModel.swift */,
+				E9BB2414249AE91F0017691E /* StepsCounterModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -408,7 +408,7 @@
 				9BE79315249128B1004496A4 /* InformationsView.swift in Sources */,
 				EC3CD98F2497BA3300487CAF /* userData.swift in Sources */,
 				AEA185F42497B392001358A3 /* Router.swift in Sources */,
-				E9BB2415249AE91F0017691E /* StepCounterModel.swift in Sources */,
+				E9BB2415249AE91F0017691E /* StepsCounterModel.swift in Sources */,
 				AEC258BB2491CC32006B7F95 /* PetViewController+ModaConfig.swift in Sources */,
 				AEC258B92491B1BC006B7F95 /* ModalViewController.swift in Sources */,
 				ECED3F5F2491290600DACECA /* Colors.swift in Sources */,

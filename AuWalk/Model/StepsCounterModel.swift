@@ -8,9 +8,20 @@
 
 import HealthKit
 
-class StepCounterModel {
+struct StepsPool: Codable {
+    var todaySteps: Double
+    var thisWeekSteps: Double
+}
+
+enum StepsFromDate {
+    case today, thisWeek
+}
+
+class StepsCounterModel {
     
     var healthStore: HKHealthStore?
+    var todaySteps: Double?
+    var thisWeekSteps: Double?
     
     init() {
         if !HKHealthStore.isHealthDataAvailable() {
@@ -20,6 +31,12 @@ class StepCounterModel {
         }
 
         checkHKAvailability()
+        
+        //saving to local vars both types of steps
+        getSteps(from: .today) { (steps) in self.todaySteps = steps }
+        getSteps(from: .thisWeek) { (steps) in self.thisWeekSteps = steps}
+        saveStepsToFile()
+        
     }
     
     func checkHKAvailability() {
@@ -65,8 +82,20 @@ class StepCounterModel {
         healthStore?.execute(query)
     }
     
+    func saveStepsToFile() {
+        
+        let steps = StepsPool(todaySteps: self.todaySteps ?? 0.0, thisWeekSteps: self.thisWeekSteps ?? 0.0)
+        
+        let encoder = PropertyListEncoder()
+        encoder.outputFormat = .xml
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("Steps.plist")
+        do {
+            let data = try encoder.encode(steps)
+            try data.write(to: path)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
 }
 
-enum StepsFromDate {
-    case today, thisWeek
-}

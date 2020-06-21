@@ -16,6 +16,7 @@ class PetViewController: UIViewController {
         return tb
     }()
 
+    let stepsCounterModel = StepsCounterModel()
     let petView = PetView()
     let modalView = ModalView()
     
