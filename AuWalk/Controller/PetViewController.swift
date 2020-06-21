@@ -40,7 +40,16 @@ class PetViewController: UIViewController {
         self.view = petView
         setupModal()
         setupTopBar()
-        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateHandler), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    @objc func updateHandler() {
+        stepsCounterModel.fetchSteps(from: .today, completion: petView.updateStepsLabel)
     }
     
     func setupTopBar() {

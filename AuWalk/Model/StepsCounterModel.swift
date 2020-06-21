@@ -8,7 +8,7 @@
 
 import HealthKit
 
-struct StepsPool: Codable {
+struct StepsRepository: Codable {
     var todaySteps: Double
     var thisWeekSteps: Double
 }
@@ -20,8 +20,7 @@ enum StepsFromDate {
 class StepsCounterModel {
     
     var healthStore: HKHealthStore?
-    var todaySteps: Double?
-    var thisWeekSteps: Double?
+    var stepsRepository: StepsRepository?
     
     init() {
         if !HKHealthStore.isHealthDataAvailable() {
@@ -31,12 +30,6 @@ class StepsCounterModel {
         }
 
         checkHKAvailability()
-        
-        //saving to local vars both types of steps
-        getSteps(from: .today) { (steps) in self.todaySteps = steps }
-        getSteps(from: .thisWeek) { (steps) in self.thisWeekSteps = steps}
-        saveStepsToFile()
-        
     }
     
     func checkHKAvailability() {
@@ -50,7 +43,7 @@ class StepsCounterModel {
     }
     
     
-    func getSteps(from date: StepsFromDate, completion: @escaping (Double) -> Void) {
+    func fetchSteps(from date: StepsFromDate, completion: @escaping (Double) -> Void) {
         
         let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)
         let now = Date()
@@ -83,15 +76,14 @@ class StepsCounterModel {
     }
     
     func saveStepsToFile() {
-        
-        let steps = StepsPool(todaySteps: self.todaySteps ?? 0.0, thisWeekSteps: self.thisWeekSteps ?? 0.0)
-        
+                
         let encoder = PropertyListEncoder()
         encoder.outputFormat = .xml
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("Steps.plist")
         do {
-            let data = try encoder.encode(steps)
+            let data = try encoder.encode(stepsRepository)
             try data.write(to: path)
+            print("Saved.")
         } catch {
             print(error.localizedDescription)
         }
