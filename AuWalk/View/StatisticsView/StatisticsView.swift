@@ -25,6 +25,9 @@ class StatisticsView: UIView {
         segmented.insertSegment(withTitle: "Pets", at: 1, animated: true)
         segmented.selectedSegmentIndex = 0
         segmented.addTarget(self, action: #selector(segmentedDidChange), for: .valueChanged)
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        segmented.setTitleTextAttributes(titleTextAttributes, for: .normal)
+        segmented.setTitleTextAttributes(titleTextAttributes, for: .selected)
         
         return segmented
         }()
@@ -92,8 +95,9 @@ extension StatisticsView: UICollectionViewDelegate, UICollectionViewDataSource, 
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
         collectionView?.dataSource = self
         collectionView?.delegate = self
+        collectionView?.register(PetListView.self, forCellWithReuseIdentifier: "PetListView")
         collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "StatisticsViewCollectionViewCell")
-        collectionView?.backgroundColor = .blue
+        collectionView?.backgroundColor = .greenLight
         collectionView?.dragInteractionEnabled = true
         collectionView?.isPagingEnabled = true
         collectionView?.showsHorizontalScrollIndicator = false
@@ -123,12 +127,12 @@ extension StatisticsView: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "StatisticsViewCollectionViewCell", for: indexPath)
+        var cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "StatisticsViewCollectionViewCell", for: indexPath)
         switch indexPath.row {
         case 0:
-            cell.backgroundColor = .red
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StatisticsViewCollectionViewCell", for: indexPath)
         case 1:
-            cell.backgroundColor = .blue
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PetListView", for: indexPath)
         default:
             return cell
         }
