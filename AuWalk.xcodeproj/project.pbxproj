@@ -29,6 +29,7 @@
 		E945140C2492F89A003D0F70 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945140B2492F89A003D0F70 /* ItemCell.swift */; };
 		E9BB2413249AD0C90017691E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9BB2412249AD0C90017691E /* HealthKit.framework */; };
 		E9BB2415249AE91F0017691E /* StepsCounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2414249AE91F0017691E /* StepsCounterModel.swift */; };
+		E9F5343E24A0EEEC0000A53C /* StepsConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F5343D24A0EEEC0000A53C /* StepsConversionTests.swift */; };
 		EC3CD98F2497BA3300487CAF /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3CD98E2497BA3300487CAF /* userData.swift */; };
 		EC3CD9912497BA8D00487CAF /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3CD9902497BA8D00487CAF /* FileManager.swift */; };
 		EC88B1582491AA4A00FFBC0D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC88B1572491AA4A00FFBC0D /* Item.swift */; };
@@ -84,6 +85,7 @@
 		E9BB2410249AD0C90017691E /* AuWalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AuWalk.entitlements; sourceTree = "<group>"; };
 		E9BB2412249AD0C90017691E /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		E9BB2414249AE91F0017691E /* StepsCounterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsCounterModel.swift; sourceTree = "<group>"; };
+		E9F5343D24A0EEEC0000A53C /* StepsConversionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsConversionTests.swift; sourceTree = "<group>"; };
 		EC3CD98E2497BA3300487CAF /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		EC3CD9902497BA8D00487CAF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		EC88B1572491AA4A00FFBC0D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				AEC25887248FC040006B7F95 /* AuWalkTests.swift */,
+				E9F5343D24A0EEEC0000A53C /* StepsConversionTests.swift */,
 				AEC25889248FC040006B7F95 /* Info.plist */,
 			);
 			path = AuWalkTests;
@@ -424,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEC25888248FC040006B7F95 /* AuWalkTests.swift in Sources */,
+				E9F5343E24A0EEEC0000A53C /* StepsConversionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
