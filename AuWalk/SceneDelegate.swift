@@ -18,7 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = PetViewController()
+        
+        let hasSeenOnboard = UserDefaults.standard.bool(forKey: "hasSeenOnboard")
+                
+        if !hasSeenOnboard {
+            window?.rootViewController = OnBoardingViewController()
+        } else {
+            window?.rootViewController = PetViewController()
+        }
+        
         window?.makeKeyAndVisible()
         
         guard let _ = (scene as? UIWindowScene) else { return }

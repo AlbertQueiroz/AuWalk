@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9BB4057D2497A36100CF8001 /* StepsToCoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB4057C2497A36100CF8001 /* StepsToCoinsView.swift */; };
+		9BCB10EB24A2333C00EE6278 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB10EA24A2333C00EE6278 /* OnBoardingViewController.swift */; };
+		9BCB10ED24A2355600EE6278 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB10EC24A2355600EE6278 /* CollectionViewCell.swift */; };
+		9BCB10EF24A23BFC00EE6278 /* Onboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB10EE24A23BFB00EE6278 /* Onboard.swift */; };
 		9BE79315249128B1004496A4 /* InformationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE79314249128B1004496A4 /* InformationsView.swift */; };
 		AEA185F02497B0B5001358A3 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA185EF2497B0B5001358A3 /* HTTP.swift */; };
 		AEA185F22497B2BB001358A3 /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA185F12497B2BB001358A3 /* StoreAPI.swift */; };
@@ -54,6 +57,9 @@
 
 /* Begin PBXFileReference section */
 		9BB4057C2497A36100CF8001 /* StepsToCoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsToCoinsView.swift; sourceTree = "<group>"; };
+		9BCB10EA24A2333C00EE6278 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		9BCB10EC24A2355600EE6278 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		9BCB10EE24A23BFB00EE6278 /* Onboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard.swift; sourceTree = "<group>"; };
 		9BE79314249128B1004496A4 /* InformationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsView.swift; sourceTree = "<group>"; };
 		AEA185EF2497B0B5001358A3 /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		AEA185F12497B2BB001358A3 /* StoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAPI.swift; sourceTree = "<group>"; };
@@ -112,6 +118,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9BCB10E824A22C9600EE6278 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB10EC24A2355600EE6278 /* CollectionViewCell.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		9BCB10E924A22DD500EE6278 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB10EA24A2333C00EE6278 /* OnBoardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		AEA185ED2497ADC4001358A3 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +213,7 @@
 			children = (
 				EC88B1572491AA4A00FFBC0D /* Item.swift */,
 				EC3CD98E2497BA3300487CAF /* userData.swift */,
+				9BCB10EE24A23BFB00EE6278 /* Onboard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,6 +221,7 @@
 		AEC258A2248FCA45006B7F95 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9BCB10E824A22C9600EE6278 /* OnBoarding */,
 				ECED3F57249127EA00DACECA /* HomePetStatusCardView.swift */,
 				ECED3F592491286300DACECA /* HomePetStatusView.swift */,
 				E9089FEE24910453005FB179 /* Components */,
@@ -214,6 +238,7 @@
 		AEC258A3248FCA50006B7F95 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9BCB10E924A22DD500EE6278 /* Onboarding */,
 				AEC258B82491B1BB006B7F95 /* ModalViewController.swift */,
 				E907AA6D2491DB3D000F36EA /* PetViewController.swift */,
 				EC3CD9902497BA8D00487CAF /* FileManager.swift */,
@@ -378,10 +403,13 @@
 			files = (
 				AEA185F22497B2BB001358A3 /* StoreAPI.swift in Sources */,
 				AEA185F02497B0B5001358A3 /* HTTP.swift in Sources */,
+				9BCB10ED24A2355600EE6278 /* CollectionViewCell.swift in Sources */,
 				EC88B1582491AA4A00FFBC0D /* Item.swift in Sources */,
 				AEC258B024910CCE006B7F95 /* PetView.swift in Sources */,
+				9BCB10EB24A2333C00EE6278 /* OnBoardingViewController.swift in Sources */,
 				E907AA6E2491DB3D000F36EA /* PetViewController.swift in Sources */,
 				9BB4057D2497A36100CF8001 /* StepsToCoinsView.swift in Sources */,
+				9BCB10EF24A23BFC00EE6278 /* Onboard.swift in Sources */,
 				ECED3F5A2491286300DACECA /* HomePetStatusView.swift in Sources */,
 				E945140C2492F89A003D0F70 /* ItemCell.swift in Sources */,
 				AEC25871248FC038006B7F95 /* AppDelegate.swift in Sources */,
