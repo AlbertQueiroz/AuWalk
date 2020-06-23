@@ -11,7 +11,7 @@ import UIKit
 class ItemCell: UITableViewCell {
     
     var item: Item?
-    
+        
     weak var delegate : updateDelegate?
     
     var animatingCircle : ((_ layer : CAShapeLayer, _ from: Float, _ to: Float) -> Void)?
@@ -82,9 +82,9 @@ class ItemCell: UITableViewCell {
     @objc func useButtonPressed (sender: UIButton){
         from = delegate?.retornoData(category: item!.category)
         delegate?.usedItemChanges(category: item!.category ,price: item!.price)
+        delegate?.atualizarDados()
         to = delegate?.retornoData(category: item!.category)
         animatingCircle!(self.shapeLayer!, self.from!, self.to!)
-        
     }
     
     lazy var itemPrice: MoneyView = {

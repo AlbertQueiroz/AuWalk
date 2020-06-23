@@ -12,10 +12,9 @@ class ModalViewController: UIViewController {
     
     let cellId = "cellId"
     var currentCell : CAShapeLayer?
+
+    var managerData = DataManager(data: userDataStruct)
     
-    var managerData = ManagerData(steps: 0, normalCoinsTotal: 0, goldenCoinsTotal: 0, levelPet: 0, levelPersonal: 0, statusHeart: 0, statusFood: 0, statusHygiene: 0, statusEnergy: 0)
-
-
     func animatingCircle (layer: CAShapeLayer, from: Float, to: Float) -> Void {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.toValue = to
@@ -38,6 +37,7 @@ class ModalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(managerData.steps)
         self.view = modalView
         
         self.modalView.tableView.delegate = self
@@ -49,10 +49,7 @@ class ModalViewController: UIViewController {
         
         modalView.collectionView.register(StoreCell.self, forCellWithReuseIdentifier: cellId)
         modalView.collectionView.allowsSelection = false
-        modalView.collectionView.backgroundColor = .greenLight
-    
-        
-        
+        modalView.collectionView.backgroundColor = .greenLight        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -162,6 +159,7 @@ extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSou
             animatingCircle(layer: cell.card.progressCircle, from: 0, to: managerData.statusFood)
             case 2:
                 cell.arrange(of: .hygiene)
+                print(managerData.statusHygiene)
             animatingCircle(layer: cell.card.progressCircle, from: 0, to: managerData.statusHygiene)
             case 3:
                 cell.arrange(of: .energy)

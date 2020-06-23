@@ -8,51 +8,45 @@
 
 import Foundation
 
-func savingData(with json : userData) -> Bool{
-
-      if let data = try? JSONEncoder().encode(json){
-
-          if(try! savingManager(with: data)){
-              print("Sucesso ao criar arquivo")
-              return true
-          } else {
-              print("Erro ao criar arquivo")
-              return false
-          }
-      }else {
-          print("Erro ao codar Json")
-          return false
-      }
-      
-  }
-
-
-
-  func savingManager(with data : Data?) throws -> Bool{
-      
-      let manager = FileManager.default
-      let mainPath  = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-      
-      let toCreate = mainPath.appendingPathComponent("userData.json").path
-      
-      let fileUrl = URL(string: toCreate)
-      
-      manager.createFile(atPath: fileUrl!.path, contents: data, attributes: nil)
-      if (manager.fileExists(atPath: mainPath.path)){
-          return true
-      } else{ return false }
-  }
-
-  func getFile(){
-      
-      let mainPath  = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-      
-      print(Bundle.main.path(forResource: "userData", ofType: "json")!)
-      let filePath = mainPath
-      
-      let data = try? Data(contentsOf: filePath)
-      let decodado = try? JSONDecoder().decode(userData.self, from: data!)
-      print(decodado!)
-  }
+struct FileController {
+    
+    let manager = FileManager.default
+    let mainPath  = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    
+    @discardableResult
+    func createFile(with data: Data, name: String) -> Bool {
+        let contentPath = constructPath(named: name)
+        manager.createFile(atPath: contentPath.path, contents: data, attributes: nil)
+        return manager.fileExists(atPath: contentPath.path)
+    }
+    
+    @discardableResult
+    func updateFile(at path: String, data: Data) -> Bool {
+        let contentPath = constructPath(named: path)
+        do {
+            try data.write(to: contentPath)
+            return true
+        } catch (let error) {
+            print(error.localizedDescription)
+            return false
+        }
+    }
+    
+    func constructPath(named: String, from path: String? = nil) -> URL {
+        let contentPath = mainPath
+        if let path = path {
+            return contentPath.appendingPathComponent(path).appendingPathComponent(named)
+        } else {
+            return contentPath.appendingPathComponent(named)
+        }
+    }
+    
+    func retrieveFile(at path: String) -> Data? {
+        let contentPath = constructPath(named: path)
+        let data = try? Data(contentsOf: contentPath)
+        return data
+    }
+    
+}
 
 

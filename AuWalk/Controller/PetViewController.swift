@@ -8,14 +8,31 @@
 
 import UIKit
 
+var userDataStruct = UserData(steps: 0, normalCoinsTotal: 0, goldenCoinsTotal: 0, levelPet: 0, levelPersonal: 0, statusHeart: 0, statusFood: 0, statusHygiene: 0, statusEnergy: 0)
+
 class PetViewController: UIViewController {
 
+func onInitReadValues(){
+        guard let data = readUserDataFromFile() else {return}
+        userDataStruct.steps = data.steps
+        userDataStruct.goldenCoinsTotal = data.goldenCoinsTotal
+        userDataStruct.levelPersonal = data.levelPersonal
+        userDataStruct.levelPet = data.levelPet
+        userDataStruct.normalCoinsTotal = data.normalCoinsTotal
+        userDataStruct.statusEnergy = data.statusEnergy
+        userDataStruct.statusFood = data.statusFood
+        userDataStruct.statusHeart = data.statusHeart
+        userDataStruct.statusHygiene = data.statusHygiene
+}
+
+    override func viewWillAppear(_ animated: Bool) {
+        onInitReadValues()
+    }
     let topBar: TopBar = {
         let tb = TopBar()
         tb.translatesAutoresizingMaskIntoConstraints = false
         return tb
     }()
-
     let petView = PetView()
     let modalView = ModalView()
     
@@ -31,7 +48,6 @@ class PetViewController: UIViewController {
     var runningAnimations = [UIViewPropertyAnimator]()
     var animationProgressWhenInterrupted:CGFloat = 0
     
-    
     let circle = HomePetStatusView()
     
     override func viewDidLoad() {
@@ -40,7 +56,6 @@ class PetViewController: UIViewController {
         setupModal()
         setupViews()
         setupTopBar()
-        
     }
     
     

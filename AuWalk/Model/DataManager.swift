@@ -9,8 +9,7 @@
 import Foundation
 
 
-public class ManagerData {
-    
+public class DataManager {
     
     var steps : Int
     var normalCoinsTotal : Int
@@ -34,9 +33,19 @@ public class ManagerData {
         self.statusEnergy = statusEnergy
     }
     
+init(data: UserData){
+        self.steps = data.steps
+        self.normalCoinsTotal = data.normalCoinsTotal
+        self.goldenCoinsTotal = data.goldenCoinsTotal
+        self.levelPersonal = data.levelPersonal
+        self.levelPet = data.levelPet
+        self.statusHeart = data.statusHeart
+        self.statusFood = data.statusFood
+        self.statusEnergy = data.statusEnergy
+        self.statusHygiene = data.statusHygiene
+}
     
-    
-    func atualizarCategoria(category: String?, Price: Int?){
+func atualizarCategoria(category: String?, Price: Int?){
         switch category{
         case "3":
             switch Price {
@@ -85,9 +94,10 @@ public class ManagerData {
 protocol updateDelegate: class {
     func usedItemChanges (category: String?, price : Int?)
     func retornoData (category: String?) -> Float
+    func atualizarDados()
 }
 
-extension ManagerData : updateDelegate{
+extension DataManager : updateDelegate{
     
     func usedItemChanges(category: String?, price : Int?){
         atualizarCategoria(category: category, Price: price)
@@ -107,5 +117,16 @@ extension ManagerData : updateDelegate{
         }
     }
     
+    func atualizarDados(){
+            let userData = UserData(steps: self.steps, normalCoinsTotal: self.normalCoinsTotal, goldenCoinsTotal: self.goldenCoinsTotal, levelPet: self.levelPet, levelPersonal: self.levelPersonal, statusHeart: self.statusHeart, statusFood: self.statusFood, statusHygiene: self.statusHygiene, statusEnergy: self.statusEnergy)
+        print(self.statusHygiene)
+        print(userData.statusHygiene)
+
+        if updateUserDataFile(data: userData) != nil{
+            print("sucesso ao atualizar")
+        } else {
+            print("erro")
+        }
+    }
 }
 

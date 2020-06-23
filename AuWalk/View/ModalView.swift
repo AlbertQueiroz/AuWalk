@@ -113,7 +113,6 @@ class StoreCell: UICollectionViewCell {
             case .food:
                 setupFood()
         }
-        //initAnimate()
     }
     
     func setupHeart() {
