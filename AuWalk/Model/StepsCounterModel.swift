@@ -21,6 +21,8 @@ class StepsCounterModel {
     
     var healthStore: HKHealthStore?
     var stepsRepository: StepsRepository?
+    var todaySteps: Double?
+    var thisWeekSteps: Double?
     
     init() {
         if !HKHealthStore.isHealthDataAvailable() {
