@@ -60,7 +60,7 @@ class PetView: UIView {
     }
     
     func setupInformations() {
-        informations.setupInformations(petName: "Boby", message: "Você já doou para algum abrigo hoje? Salve meus amiguinhos!", steps: 76, multiplierSteps: 61)
+        informations.setupInformations(petName: "Boby", message: "Você já doou para algum abrigo hoje? Salve meus amiguinhos!", steps: 0, multiplierSteps: 61)
         self.addSubview(informations)
         
         informations.translatesAutoresizingMaskIntoConstraints = false
