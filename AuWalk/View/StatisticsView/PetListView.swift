@@ -88,9 +88,9 @@ class PetListViewCell: UICollectionViewCell {
         self.backgroundColor = .white
         self.layer.cornerRadius = self.frame.height/2
         self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOpacity = 0.1
         self.layer.shadowOffset = .zero
-        self.layer.shadowRadius = 8
+        self.layer.shadowRadius = 4
     }
     
     required init?(coder: NSCoder) {

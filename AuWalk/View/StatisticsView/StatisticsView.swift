@@ -96,7 +96,7 @@ extension StatisticsView: UICollectionViewDelegate, UICollectionViewDataSource, 
         collectionView?.dataSource = self
         collectionView?.delegate = self
         collectionView?.register(PetListView.self, forCellWithReuseIdentifier: "PetListView")
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "StatisticsViewCollectionViewCell")
+        collectionView?.register(StatisticsListView.self, forCellWithReuseIdentifier: "StatisticsListView")
         collectionView?.backgroundColor = .greenLight
         collectionView?.dragInteractionEnabled = true
         collectionView?.isPagingEnabled = true
@@ -127,10 +127,10 @@ extension StatisticsView: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "StatisticsViewCollectionViewCell", for: indexPath)
+        var cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "StatisticsListView", for: indexPath)
         switch indexPath.row {
         case 0:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StatisticsViewCollectionViewCell", for: indexPath)
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StatisticsListView", for: indexPath)
         case 1:
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PetListView", for: indexPath)
         default:
