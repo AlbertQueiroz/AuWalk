@@ -40,6 +40,7 @@ class PetViewController: UIViewController {
         self.view = petView
         setupModal()
         setupTopBar()
+        stepsCounterModel.fetchSteps(from: .today, completion: petView.updateStepsLabel)
 
     }
     
