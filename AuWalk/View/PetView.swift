@@ -24,6 +24,8 @@ class PetView: UIView {
         return imageView
     }()
     
+    let informations = InformationsView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupBackground()
@@ -58,8 +60,7 @@ class PetView: UIView {
     }
     
     func setupInformations() {
-        let informations = InformationsView()
-        informations.setupInformations(petName: "Boby", message: "Você já doou para algum abrigo hoje? Salve meus amiguinhos!", steps: 76, multiplierSteps: 61)
+        informations.setupInformations(petName: "Boby", message: "Você já doou para algum abrigo hoje? Salve meus amiguinhos!", steps: 0, multiplierSteps: 61)
         self.addSubview(informations)
         
         informations.translatesAutoresizingMaskIntoConstraints = false
@@ -69,6 +70,16 @@ class PetView: UIView {
             informations.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 80),
             informations.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -80),
         ])
+    }
+    
+    func updateStepsLabel(newValue: Double?) {
+        
+        if let newValue = newValue {
+            DispatchQueue.main.async {
+                self.informations.stepsToCoin.stepsLabel.text = String(Int(newValue))
+                self.informations.stepsToCoin.coinsLabel.text = String(Int(newValue * 61))
+            }
+        }
     }
 
 }

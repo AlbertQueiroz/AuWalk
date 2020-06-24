@@ -16,6 +16,7 @@ class PetViewController: UIViewController {
         return tb
     }()
 
+    let stepsCounterModel = StepsCounterModel()
     let petView = PetView()
     let modalView = ModalView()
     
@@ -34,18 +35,23 @@ class PetViewController: UIViewController {
     
     let circle = HomePetStatusView()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateHandler), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = petView
         setupModal()
-        setupViews()
         setupTopBar()
         
-        //setCirclePositions(fromValue: view.frame.size.width)
-        //setField()
-        
+        stepsCounterModel.fetchSteps(from: .today, completion: petView.updateStepsLabel)
+
     }
-    
     
     func setField () {
         view.addSubview(circle)
@@ -55,14 +61,17 @@ class PetViewController: UIViewController {
         circle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         circle.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
         circle.heightAnchor.constraint(equalToConstant: 58).isActive = true
+        
     }
     
-    func setupViews() {
-        view.addSubview(topBar)
+    @objc func updateHandler() {
+        stepsCounterModel.fetchSteps(from: .today, completion: petView.updateStepsLabel)
     }
     
     func setupTopBar() {
+        topBar.statsButton.addTarget(self, action: #selector(openStatisticsVC), for: .touchUpInside)
         
+        view.addSubview(topBar)
         NSLayoutConstraint.activate([
         
             topBar.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
@@ -70,6 +79,11 @@ class PetViewController: UIViewController {
             topBar.heightAnchor.constraint(equalToConstant: 40)
             
         ])
+    }
+    
+    @objc func openStatisticsVC() {
+        let destination = StatisticsViewController()
+        self.navigationController?.pushViewController(destination, animated: true)
     }
     
     public func setCirclePositions(fromValue: CGFloat){

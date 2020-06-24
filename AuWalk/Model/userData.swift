@@ -23,5 +23,4 @@ struct userData : Encodable, Decodable {
         self.levelPet = levelPet
         self.levelPersonal = levelPersonal
     }
-
 }
