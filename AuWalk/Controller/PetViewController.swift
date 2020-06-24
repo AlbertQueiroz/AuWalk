@@ -16,6 +16,7 @@ class PetViewController: UIViewController {
         return tb
     }()
 
+    let stepsCounterModel = StepsCounterModel()
     let petView = PetView()
     let modalView = ModalView()
     
@@ -44,9 +45,10 @@ class PetViewController: UIViewController {
         super.viewDidLoad()
         self.view = petView
         setupModal()
-        setupViews()
         setupTopBar()
         
+        stepsCounterModel.fetchSteps(from: .today, completion: petView.updateStepsLabel)
+
     }
     
     func setField () {
@@ -57,15 +59,19 @@ class PetViewController: UIViewController {
         circle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         circle.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
         circle.heightAnchor.constraint(equalToConstant: 58).isActive = true
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateHandler), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
-    func setupViews() {
-        view.addSubview(topBar)
+    @objc func updateHandler() {
+        stepsCounterModel.fetchSteps(from: .today, completion: petView.updateStepsLabel)
     }
     
     func setupTopBar() {
         topBar.statsButton.addTarget(self, action: #selector(openStatisticsVC), for: .touchUpInside)
         
+        view.addSubview(topBar)
         NSLayoutConstraint.activate([
         
             topBar.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
