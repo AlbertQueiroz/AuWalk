@@ -25,6 +25,7 @@ class CollectionViewCell: UICollectionViewCell {
        let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 18, weight: .light)
+        label.textColor = .greenLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         return label
