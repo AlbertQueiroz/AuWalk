@@ -8,7 +8,7 @@
 
 import Foundation
 
-func createNewFile(data: userData) -> Data?{
+func createNewFile(data: UserData) -> Data?{
     
     if let data = try? JSONEncoder().encode(data){
         FileController().createFile(with: data, name: "UserData.Json")
@@ -17,16 +17,16 @@ func createNewFile(data: userData) -> Data?{
     return nil
 }
 
-func readUserDataFromFile() -> userData?{
+func readUserDataFromFile() -> UserData?{
     
     if let data = FileController().retrieveFile(at: "UserData.Json"){
-        let userData = try? JSONDecoder().decode(userData.self, from: data)
+        let userData = try? JSONDecoder().decode(UserData.self, from: data)
         return userData
     }
     return nil
 }
 
-func updateUserDataFile(data : userData) -> Data?{
+func updateUserDataFile(data : UserData) -> Data?{
     
     if let data = try? JSONEncoder().encode(data){
         FileController().updateFile(at: "UserData.Json", data: data)

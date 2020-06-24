@@ -8,7 +8,7 @@
 
 import UIKit
 
-var userDataStruct = userData(steps: 0, normalCoinsTotal: 0, goldenCoinsTotal: 0, levelPet: 0, levelPersonal: 0, statusHeart: 0, statusFood: 0, statusHygiene: 0, statusEnergy: 0)
+var userDataStruct = UserData(steps: 0, normalCoinsTotal: 0, goldenCoinsTotal: 0, levelPet: 0, levelPersonal: 0, statusHeart: 0, statusFood: 0, statusHygiene: 0, statusEnergy: 0)
 
 class PetViewController: UIViewController {
 
@@ -25,14 +25,13 @@ func onInitReadValues(){
         userDataStruct.statusHygiene = data.statusHygiene
 }
 
-    override func viewWillAppear(_ animated: Bool) {
-        onInitReadValues()
-    }
     let topBar: TopBar = {
         let tb = TopBar()
         tb.translatesAutoresizingMaskIntoConstraints = false
         return tb
     }()
+
+    let stepsCounterModel = StepsCounterModel()
     let petView = PetView()
     let modalView = ModalView()
     
@@ -50,14 +49,25 @@ func onInitReadValues(){
     
     let circle = HomePetStatusView()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        onInitReadValues()
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateHandler), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = petView
         setupModal()
-        setupViews()
         setupTopBar()
+        
+        stepsCounterModel.fetchSteps(from: .today, completion: petView.updateStepsLabel)
+
     }
-    
     
     func setField () {
         view.addSubview(circle)
@@ -67,14 +77,17 @@ func onInitReadValues(){
         circle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         circle.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
         circle.heightAnchor.constraint(equalToConstant: 58).isActive = true
+        
     }
     
-    func setupViews() {
-        view.addSubview(topBar)
+    @objc func updateHandler() {
+        stepsCounterModel.fetchSteps(from: .today, completion: petView.updateStepsLabel)
     }
     
     func setupTopBar() {
+        topBar.statsButton.addTarget(self, action: #selector(openStatisticsVC), for: .touchUpInside)
         
+        view.addSubview(topBar)
         NSLayoutConstraint.activate([
         
             topBar.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
@@ -82,6 +95,11 @@ func onInitReadValues(){
             topBar.heightAnchor.constraint(equalToConstant: 40)
             
         ])
+    }
+    
+    @objc func openStatisticsVC() {
+        let destination = StatisticsViewController()
+        self.navigationController?.pushViewController(destination, animated: true)
     }
     
     public func setCirclePositions(fromValue: CGFloat){
