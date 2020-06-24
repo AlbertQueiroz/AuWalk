@@ -28,7 +28,7 @@
 		E9089FED24906215005FB179 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9089FEC24906215005FB179 /* TopBar.swift */; };
 		E945140C2492F89A003D0F70 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E945140B2492F89A003D0F70 /* ItemCell.swift */; };
 		EC060F05249BAFDE00398EDD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC060F04249BAFDE00398EDD /* DataManager.swift */; };
-		EC3CD98F2497BA3300487CAF /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3CD98E2497BA3300487CAF /* UserData.swift */; };
+		EC3CD98F2497BA3300487CAF /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3CD98E2497BA3300487CAF /* userData.swift */; };
 		EC3CD9912497BA8D00487CAF /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3CD9902497BA8D00487CAF /* FileManager.swift */; };
 		EC79D24424A0D56500F2BC25 /* UserDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC79D24324A0D56500F2BC25 /* UserDataRepository.swift */; };
 		EC88B1582491AA4A00FFBC0D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC88B1572491AA4A00FFBC0D /* Item.swift */; };
@@ -82,7 +82,7 @@
 		E9089FEF24910485005FB179 /* MoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyView.swift; sourceTree = "<group>"; };
 		E945140B2492F89A003D0F70 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		EC060F04249BAFDE00398EDD /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		EC3CD98E2497BA3300487CAF /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		EC3CD98E2497BA3300487CAF /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
 		EC3CD9902497BA8D00487CAF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		EC79D24324A0D56500F2BC25 /* UserDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepository.swift; sourceTree = "<group>"; };
 		EC88B1572491AA4A00FFBC0D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				EC88B1572491AA4A00FFBC0D /* Item.swift */,
-				EC3CD98E2497BA3300487CAF /* UserData.swift */,
+				EC3CD98E2497BA3300487CAF /* userData.swift */,
 				EC060F04249BAFDE00398EDD /* DataManager.swift */,
 			);
 			path = Model;
@@ -397,7 +397,7 @@
 				EC3CD9912497BA8D00487CAF /* FileManager.swift in Sources */,
 				AEC258B424911F32006B7F95 /* ModalView.swift in Sources */,
 				9BE79315249128B1004496A4 /* InformationsView.swift in Sources */,
-				EC3CD98F2497BA3300487CAF /* UserData.swift in Sources */,
+				EC3CD98F2497BA3300487CAF /* userData.swift in Sources */,
 				AEA185F42497B392001358A3 /* Router.swift in Sources */,
 				AEC258BB2491CC32006B7F95 /* PetViewController+ModaConfig.swift in Sources */,
 				AEC258B92491B1BC006B7F95 /* ModalViewController.swift in Sources */,

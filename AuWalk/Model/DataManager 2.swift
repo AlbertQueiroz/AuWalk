@@ -33,7 +33,7 @@ public class DataManager {
         self.statusEnergy = statusEnergy
     }
     
-init(data: userData){
+init(data: UserData){
         self.steps = data.steps
         self.normalCoinsTotal = data.normalCoinsTotal
         self.goldenCoinsTotal = data.goldenCoinsTotal
@@ -118,7 +118,7 @@ extension DataManager : updateDelegate{
     }
     
     func atualizarDados(){
-            let userData = userData(steps: self.steps, normalCoinsTotal: self.normalCoinsTotal, goldenCoinsTotal: self.goldenCoinsTotal, levelPet: self.levelPet, levelPersonal: self.levelPersonal, statusHeart: self.statusHeart, statusFood: self.statusFood, statusHygiene: self.statusHygiene, statusEnergy: self.statusEnergy)
+            let userData = UserData(steps: self.steps, normalCoinsTotal: self.normalCoinsTotal, goldenCoinsTotal: self.goldenCoinsTotal, levelPet: self.levelPet, levelPersonal: self.levelPersonal, statusHeart: self.statusHeart, statusFood: self.statusFood, statusHygiene: self.statusHygiene, statusEnergy: self.statusEnergy)
         print(self.statusHygiene)
         print(userData.statusHygiene)
 
