@@ -24,17 +24,18 @@ class StatisticsListView: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "30000"
-        label.textColor = .black
+        label.textColor = .greenLight
         label.textAlignment = .center
-        
+        label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         return label
     }()
     
+
     let stepsCard: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = true
-        view.backgroundColor = .white
+        view.backgroundColor = .greenLabel
         view.layer.cornerRadius = 100
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOpacity = 1
@@ -58,8 +59,9 @@ class StatisticsListView: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "250000"
-        label.textColor = .black
+        label.textColor = .greenLight
         label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         
         return label
     }()
@@ -68,7 +70,7 @@ class StatisticsListView: UICollectionViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = true
-        view.backgroundColor = .white
+        view.backgroundColor = .greenLabel
         view.layer.cornerRadius = 60
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOpacity = 1
@@ -92,8 +94,9 @@ class StatisticsListView: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "8h"
-        label.textColor = .black
+        label.textColor = .greenLight
         label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         
         return label
     }()
@@ -102,8 +105,8 @@ class StatisticsListView: UICollectionViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = true
-        view.backgroundColor = .white
-        view.layer.cornerRadius = 50
+        view.backgroundColor = .greenLabel
+        view.layer.cornerRadius = 60
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOpacity = 1
         view.layer.shadowOffset = .zero
