@@ -64,9 +64,23 @@ func onInitReadValues(){
         self.view = petView
         setupModal()
         setupTopBar()
+        modalVC.stepsCounterModel = self.stepsCounterModel
+        modalVC.petViewVC = self
+        stepsCounterModel.loadCoinsFromFile()
         
-        stepsCounterModel.fetchSteps(from: .today, completion: petView.updateStepsLabel)
+        stepsCounterModel.fetchSteps(from: .today) { (steps) in
+            self.petView.updateStepsLabel(newValue: steps)
+            self.stepsCounterModel.updateBalance(currentCoinsLabel: steps)
+            
+            let pawMoney = self.stepsCounterModel.coinTracker!.coinsEarned - self.stepsCounterModel.coinTracker!.coinsSpent
+            
+            self.topBar.pawMoney.updateAmount(amount: Int(pawMoney))
+        }
 
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        stepsCounterModel.saveCoinsToFile()
     }
     
     func setField () {
@@ -81,7 +95,15 @@ func onInitReadValues(){
     }
     
     @objc func updateHandler() {
-        stepsCounterModel.fetchSteps(from: .today, completion: petView.updateStepsLabel)
+        stepsCounterModel.fetchSteps(from: .today) { (steps) in
+            self.stepsCounterModel.loadCoinsFromFile()
+            self.petView.updateStepsLabel(newValue: steps)
+            self.stepsCounterModel.updateBalance(currentCoinsLabel: steps)
+            
+            let pawMoney = self.stepsCounterModel.coinTracker!.coinsEarned - self.stepsCounterModel.coinTracker!.coinsSpent
+            
+            self.topBar.pawMoney.updateAmount(amount: Int(pawMoney))
+        }
     }
     
     func setupTopBar() {

@@ -52,7 +52,11 @@ class MoneyView: UIView {
     }
     
     func updateAmount(amount: Int) {
-        self.moneyLabel.text = String(amount)
+        
+        DispatchQueue.main.async {
+            self.moneyLabel.text = String(amount)
+        }
+        
     }
     
     func setupViews() {

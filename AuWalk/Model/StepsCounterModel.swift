@@ -8,19 +8,19 @@
 
 import HealthKit
 
-struct StepsRepository: Codable {
-    var todaySteps: Double
-    var thisWeekSteps: Double
+struct CoinTracker: Codable {
+    var coinsSpent: Double
+    var coinsEarned: Double
 }
 
 enum StepsFromDate {
     case today, thisWeek
 }
 
-class StepsCounterModel {
-    
+class StepsCounterModel: MoneyDelegate {
+
     var healthStore: HKHealthStore?
-    var stepsRepository: StepsRepository?
+    var coinTracker: CoinTracker?
     
     init() {
         if !HKHealthStore.isHealthDataAvailable() {
@@ -30,6 +30,8 @@ class StepsCounterModel {
         }
 
         checkHKAvailability()
+        coinTracker = CoinTracker(coinsSpent: 0.0, coinsEarned: 0.0)
+        loadCoinsFromFile()
     }
     
     func checkHKAvailability() {
@@ -75,19 +77,74 @@ class StepsCounterModel {
         healthStore?.execute(query)
     }
     
-    func saveStepsToFile() {
-                
+    func updateBalance(currentCoinsLabel: Double) {
+        
+        guard var coinTracker = self.coinTracker else {
+            print("CoinTracker not initialized.")
+            return
+        }
+        
+        let coinsDifference = (currentCoinsLabel - coinTracker.coinsEarned) * 0.2
+        coinTracker.coinsEarned = currentCoinsLabel * 0.2
+        
+        if coinsDifference <= 0 {
+            coinTracker.coinsSpent = 0
+        }
+        
+        self.coinTracker = coinTracker
+        
+        saveCoinsToFile()
+    }
+    
+    func spendMoney(newExpense: Double) {
+        
+        guard var coinTracker = self.coinTracker else {
+            print("CoinTracker not initialized.")
+            return
+        }
+        
+        coinTracker.coinsSpent = coinTracker.coinsSpent + newExpense
+        self.coinTracker = coinTracker
+        saveCoinsToFile()
+    }
+    
+    func saveCoinsToFile() {
         let encoder = PropertyListEncoder()
         encoder.outputFormat = .xml
-        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("Steps.plist")
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("CoinTracker.plist")
         do {
-            let data = try encoder.encode(stepsRepository)
+            let data = try encoder.encode(coinTracker)
             try data.write(to: path)
-            print("Saved.")
+            print("Saved coins to file.")
         } catch {
             print(error.localizedDescription)
         }
     }
     
+    func loadCoinsFromFile() {
+        
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("CoinTracker.plist")
+        
+        guard let data = try? Data(contentsOf: path) else {
+            saveCoinsToFile()
+            return
+        }
+        
+        let decoder = PropertyListDecoder()
+        
+        guard let plist = try? decoder.decode(CoinTracker.self, from: data) else {
+            print("Couldn't convert to plist.")
+            return
+        }
+        
+        print("Loaded.")
+        self.coinTracker = plist
+    }
+    
 }
 
+protocol MoneyDelegate {
+    
+    func spendMoney(newExpense: Double)
+    
+}

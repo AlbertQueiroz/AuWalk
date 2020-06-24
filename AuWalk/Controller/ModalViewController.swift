@@ -12,6 +12,8 @@ class ModalViewController: UIViewController {
     
     let cellId = "cellId"
     var currentCell : CAShapeLayer?
+    var stepsCounterModel: StepsCounterModel?
+    var petViewVC: PetViewController?
 
     var managerData = DataManager(data: userDataStruct)
     
@@ -75,6 +77,8 @@ extension ModalViewController: UITableViewDelegate, UITableViewDataSource {
         cell.shapeLayer = currentCell
         cell.animatingCircle = self.animatingCircle
         cell.delegate = managerData
+        cell.moneyDelegate = stepsCounterModel
+        cell.petVC = self.petViewVC
         return cell
     }
     

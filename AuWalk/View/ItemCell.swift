@@ -14,6 +14,10 @@ class ItemCell: UITableViewCell {
         
     weak var delegate : updateDelegate?
     
+    var moneyDelegate: MoneyDelegate?
+    
+    var petVC: PetViewController?
+    
     var animatingCircle : ((_ layer : CAShapeLayer, _ from: Float, _ to: Float) -> Void)?
     
     var shapeLayer : CAShapeLayer?
@@ -85,6 +89,8 @@ class ItemCell: UITableViewCell {
         delegate?.atualizarDados()
         to = delegate?.retornoData(category: item!.category)
         animatingCircle!(self.shapeLayer!, self.from!, self.to!)
+        moneyDelegate!.spendMoney(newExpense: Double(item!.price))
+        petVC?.updateHandler()
     }
     
     lazy var itemPrice: MoneyView = {

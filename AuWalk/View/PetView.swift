@@ -60,7 +60,7 @@ class PetView: UIView {
     }
     
     func setupInformations() {
-        informations.setupInformations(petName: "Boby", message: "Você já doou para algum abrigo hoje? Salve meus amiguinhos!", steps: 0, multiplierSteps: 61)
+        informations.setupInformations(petName: "Boby", message: "Você já doou para algum abrigo hoje? Salve meus amiguinhos!", steps: 0, multiplierSteps: 11)
         self.addSubview(informations)
         
         informations.translatesAutoresizingMaskIntoConstraints = false
@@ -77,7 +77,7 @@ class PetView: UIView {
         if let newValue = newValue {
             DispatchQueue.main.async {
                 self.informations.stepsToCoin.stepsLabel.text = String(Int(newValue))
-                self.informations.stepsToCoin.coinsLabel.text = String(Int(newValue * 61))
+                self.informations.stepsToCoin.coinsLabel.text = String(Int(newValue * 0.2))
             }
         }
     }

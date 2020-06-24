@@ -101,6 +101,7 @@ extension DataManager : updateDelegate{
     
     func usedItemChanges(category: String?, price : Int?){
         atualizarCategoria(category: category, Price: price)
+        self.normalCoinsTotal = self.normalCoinsTotal - price!
   }
     func retornoData(category: String?) -> Float {
         switch category {
