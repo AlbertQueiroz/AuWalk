@@ -20,7 +20,7 @@ public class DataManager {
     var statusFood : Float
     var statusHygiene : Float
     var statusEnergy : Float
- 
+    
     init(steps: Int, normalCoinsTotal: Int, goldenCoinsTotal: Int, levelPet: Int, levelPersonal: Int, statusHeart: Float, statusFood: Float, statusHygiene: Float, statusEnergy: Float) {
         self.steps = steps
         self.normalCoinsTotal = normalCoinsTotal
@@ -33,7 +33,7 @@ public class DataManager {
         self.statusEnergy = statusEnergy
     }
     
-init(data: UserData){
+    init(data: UserData){
         self.steps = data.steps
         self.normalCoinsTotal = data.normalCoinsTotal
         self.goldenCoinsTotal = data.goldenCoinsTotal
@@ -43,9 +43,9 @@ init(data: UserData){
         self.statusFood = data.statusFood
         self.statusEnergy = data.statusEnergy
         self.statusHygiene = data.statusHygiene
-}
+    }
     
-func atualizarCategoria(category: String?, Price: Int?){
+    func atualizarCategoria(category: String?, Price: Int?){
         switch category{
         case "3":
             switch Price {
@@ -58,33 +58,33 @@ func atualizarCategoria(category: String?, Price: Int?){
             }
         case "1":
             switch Price {
-                       case 250:
-                        self.statusFood += 0.2
-                       case 300:
-                        self.statusFood += 0.3
-                       case 500:
-                        self.statusFood += 0.5
-                       default:
-                           return
-                       }
+            case 250:
+                self.statusFood += 0.2
+            case 300:
+                self.statusFood += 0.3
+            case 500:
+                self.statusFood += 0.5
+            default:
+                return
+            }
         case "2":
             switch Price {
-                       case 300:
-                        self.statusHygiene += 0.2
-                       case 500:
-                        self.statusHygiene += 0.45
-                       case 700:
-                        self.statusHygiene += 0.65
-                       default:
-                           return
-                       }
+            case 300:
+                self.statusHygiene += 0.2
+            case 500:
+                self.statusHygiene += 0.45
+            case 700:
+                self.statusHygiene += 0.65
+            default:
+                return
+            }
         case "4":
             switch Price {
-                       case 500:
-                        self.statusEnergy += 0.5
-                       default:
-                           return
-                       }
+            case 500:
+                self.statusEnergy += 0.5
+            default:
+                return
+            }
         default:
             return
         }
@@ -101,7 +101,7 @@ extension DataManager : updateDelegate{
     
     func usedItemChanges(category: String?, price : Int?){
         atualizarCategoria(category: category, Price: price)
-  }
+    }
     func retornoData(category: String?) -> Float {
         switch category {
         case "1":
@@ -118,10 +118,9 @@ extension DataManager : updateDelegate{
     }
     
     func atualizarDados(){
-            let userData = UserData(steps: self.steps, normalCoinsTotal: self.normalCoinsTotal, goldenCoinsTotal: self.goldenCoinsTotal, levelPet: self.levelPet, levelPersonal: self.levelPersonal, statusHeart: self.statusHeart, statusFood: self.statusFood, statusHygiene: self.statusHygiene, statusEnergy: self.statusEnergy)
-        print(self.statusHygiene)
-        print(userData.statusHygiene)
-
+        let userData = UserData(steps: self.steps, normalCoinsTotal: self.normalCoinsTotal, goldenCoinsTotal: self.goldenCoinsTotal, levelPet: self.levelPet, levelPersonal: self.levelPersonal, statusHeart: self.statusHeart, statusFood: self.statusFood, statusHygiene: self.statusHygiene, statusEnergy: self.statusEnergy)
+        
+        
         if updateUserDataFile(data: userData) != nil{
             print("sucesso ao atualizar")
         } else {

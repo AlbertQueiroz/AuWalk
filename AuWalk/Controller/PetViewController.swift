@@ -26,9 +26,18 @@ class PetViewController: UIViewController {
     }
     
     func updateStatusValues() {
+        
+        
         userDataStruct.statusHeart = 0
         
         let _ = updateUserDataFile(data: userDataStruct)
+
+        if modalVC.statusLayers != [] {
+            modalVC.animatingCircle(layer: modalVC.statusLayers[0] ?? CAShapeLayer(), from: modalVC.managerData.statusHeart, to: 0, mode: .backwards)
+        }
+        
+        modalVC.managerData.statusHeart = 0
+        
     }
     
     let topBar: TopBar = {
@@ -60,7 +69,8 @@ class PetViewController: UIViewController {
         updateStatusValues()
         
         onInitReadValues()
-        
+
+
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateHandler), name: UIApplication.willEnterForegroundNotification, object: nil)
