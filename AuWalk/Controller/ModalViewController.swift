@@ -15,12 +15,12 @@ class ModalViewController: UIViewController {
 
     var managerData = DataManager(data: userDataStruct)
     
-    func animatingCircle (layer: CAShapeLayer, from: Float, to: Float) -> Void {
+    func animatingCircle (layer: CAShapeLayer, from: Float, to: Float, mode: CAMediaTimingFillMode) -> Void {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.toValue = to
         basicAnimation.fromValue = from
         basicAnimation.duration = 1
-        basicAnimation.fillMode = .forwards
+        basicAnimation.fillMode = mode
         basicAnimation.isRemovedOnCompletion = false
         layer.add(basicAnimation, forKey: "StrokeEnd")
     }
@@ -153,17 +153,17 @@ extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSou
             case 0:
                 cell.arrange(of: .heart)
                 currentCell = cell.card.progressCircle
-                animatingCircle(layer: cell.card.progressCircle, from: 0, to: managerData.statusHeart)
+                animatingCircle(layer: cell.card.progressCircle, from: 0, to: managerData.statusHeart, mode: .forwards)
             case 1:
                 cell.arrange(of: .food)
-            animatingCircle(layer: cell.card.progressCircle, from: 0, to: managerData.statusFood)
+            animatingCircle(layer: cell.card.progressCircle, from: 0, to: managerData.statusFood, mode: .forwards)
             case 2:
                 cell.arrange(of: .hygiene)
                 print(managerData.statusHygiene)
-            animatingCircle(layer: cell.card.progressCircle, from: 0, to: managerData.statusHygiene)
+            animatingCircle(layer: cell.card.progressCircle, from: 0, to: managerData.statusHygiene, mode: .forwards)
             case 3:
                 cell.arrange(of: .energy)
-            animatingCircle(layer: cell.card.progressCircle, from: 0, to: managerData.statusEnergy)
+            animatingCircle(layer: cell.card.progressCircle, from: 0, to: managerData.statusEnergy, mode: .forwards)
             default:
                 fatalError("Case doesn't exist.")
         }
