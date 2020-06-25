@@ -15,7 +15,7 @@ class HomePetStatusCardView : UIView {
         let circularPath = UIBezierPath(arcCenter: .zero, radius: 20, startAngle: 0, endAngle: 2*CGFloat.pi, clockwise: true)
         layer.path = circularPath.cgPath
         layer.lineCap = .round
-        layer.strokeEnd = 1
+        layer.strokeEnd = 0
         layer.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
         
         return layer

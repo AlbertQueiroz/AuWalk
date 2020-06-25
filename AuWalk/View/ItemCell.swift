@@ -14,7 +14,7 @@ class ItemCell: UITableViewCell {
         
     weak var delegate : updateDelegate?
     
-    var animatingCircle : ((_ layer : CAShapeLayer, _ from: Float, _ to: Float) -> Void)?
+    var animatingCircle : ((_ layer : CAShapeLayer, _ from: Float, _ to: Float, _ mode: CAMediaTimingFillMode) -> Void)?
     
     var shapeLayer : CAShapeLayer?
     
@@ -84,7 +84,7 @@ class ItemCell: UITableViewCell {
         delegate?.usedItemChanges(category: item!.category ,price: item!.price)
         delegate?.atualizarDados()
         to = delegate?.retornoData(category: item!.category)
-        animatingCircle!(self.shapeLayer!, self.from!, self.to!)
+        animatingCircle!(self.shapeLayer!, self.from!, self.to!, .forwards)
     }
     
     lazy var itemPrice: MoneyView = {
