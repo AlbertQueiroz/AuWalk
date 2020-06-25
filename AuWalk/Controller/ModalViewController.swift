@@ -114,6 +114,10 @@ extension ModalViewController: UICollectionViewDelegate, UICollectionViewDataSou
         for cell in modalView.collectionView.visibleCells {
             cell.backgroundColor = .clear
         }
+        
+        let current = modalView.collectionView.visibleCells[0] as! StoreCell
+        currentCell = current.card.progressCircle
+        
         modalView.collectionView.backgroundColor = .greenLight
         modalView.handleArea.backgroundColor = .greenLight
         modalView.collectionView.allowsSelection = false
