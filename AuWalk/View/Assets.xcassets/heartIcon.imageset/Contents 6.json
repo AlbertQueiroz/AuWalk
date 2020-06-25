@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "osso de brinquedo.png",
+      "filename" : "heartIcon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "osso de brinquedo@2x.png",
+      "filename" : "heartIcon@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "osso de brinquedo@3x.png",
+      "filename" : "heartIcon@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

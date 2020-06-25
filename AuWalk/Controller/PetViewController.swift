@@ -11,8 +11,8 @@ import UIKit
 var userDataStruct = UserData(steps: 0, normalCoinsTotal: 0, goldenCoinsTotal: 0, levelPet: 0, levelPersonal: 0, statusHeart: 0, statusFood: 0, statusHygiene: 0, statusEnergy: 0)
 
 class PetViewController: UIViewController {
-
-func onInitReadValues(){
+    
+    func onInitReadValues(){
         guard let data = readUserDataFromFile() else {return}
         userDataStruct.steps = data.steps
         userDataStruct.goldenCoinsTotal = data.goldenCoinsTotal
@@ -23,14 +23,29 @@ func onInitReadValues(){
         userDataStruct.statusFood = data.statusFood
         userDataStruct.statusHeart = data.statusHeart
         userDataStruct.statusHygiene = data.statusHygiene
-}
+    }
+    
+    func updateStatusValues() {
+        
+        
+        userDataStruct.statusHeart = 0
+        
+        let _ = updateUserDataFile(data: userDataStruct)
 
+        if modalVC.statusLayers != [] {
+            modalVC.animatingCircle(layer: modalVC.statusLayers[0] ?? CAShapeLayer(), from: modalVC.managerData.statusHeart, to: 0, mode: .backwards)
+        }
+        
+        modalVC.managerData.statusHeart = 0
+        
+    }
+    
     let topBar: TopBar = {
         let tb = TopBar()
         tb.translatesAutoresizingMaskIntoConstraints = false
         return tb
     }()
-
+    
     let stepsCounterModel = StepsCounterModel()
     let petView = PetView()
     let modalView = ModalView()
@@ -51,9 +66,11 @@ func onInitReadValues(){
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateStatusValues()
         
         onInitReadValues()
-        
+
+
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateHandler), name: UIApplication.willEnterForegroundNotification, object: nil)
@@ -111,7 +128,7 @@ func onInitReadValues(){
         
         view.addSubview(topBar)
         NSLayoutConstraint.activate([
-        
+            
             topBar.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
             topBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             topBar.heightAnchor.constraint(equalToConstant: 40)
@@ -127,15 +144,15 @@ func onInitReadValues(){
     public func setCirclePositions(fromValue: CGFloat){
         let initingValue = fromValue  / 8
         circle.cardHeart.progressCircle.position = CGPoint(x: initingValue, y: 29)
-         circle.cardFood.progressCircle.position = CGPoint(x: initingValue * 3, y: 29)
-         circle.cardHygiene.progressCircle.position = CGPoint(x: initingValue * 5, y: 29)
-         circle.cardEnergy.progressCircle.position = CGPoint(x:initingValue * 7, y: 29)
+        circle.cardFood.progressCircle.position = CGPoint(x: initingValue * 3, y: 29)
+        circle.cardHygiene.progressCircle.position = CGPoint(x: initingValue * 5, y: 29)
+        circle.cardEnergy.progressCircle.position = CGPoint(x:initingValue * 7, y: 29)
         
         circle.cardHeart.imageIconView.frame = CGRect(origin: CGPoint(x: circle.cardHeart.progressCircle.position.x-10, y: circle.cardHeart.progressCircle.position.y-10), size: CGSize(width: 20, height: 20))
         
-         circle.cardFood.imageIconView.frame = CGRect(origin: CGPoint(x: circle.cardFood.progressCircle.position.x-10, y: circle.cardFood.progressCircle.position.y-10), size: CGSize(width: 20, height: 20))
-         circle.cardHygiene.imageIconView.frame = CGRect(origin: CGPoint(x: circle.cardHygiene.progressCircle.position.x-10, y: circle.cardHygiene.progressCircle.position.y-10), size: CGSize(width: 20, height: 20))
-         circle.cardEnergy.imageIconView.frame = CGRect(origin: CGPoint(x: circle.cardEnergy.progressCircle.position.x-10, y: circle.cardEnergy.progressCircle.position.y-10), size: CGSize(width: 20, height: 20))
+        circle.cardFood.imageIconView.frame = CGRect(origin: CGPoint(x: circle.cardFood.progressCircle.position.x-10, y: circle.cardFood.progressCircle.position.y-10), size: CGSize(width: 20, height: 20))
+        circle.cardHygiene.imageIconView.frame = CGRect(origin: CGPoint(x: circle.cardHygiene.progressCircle.position.x-10, y: circle.cardHygiene.progressCircle.position.y-10), size: CGSize(width: 20, height: 20))
+        circle.cardEnergy.imageIconView.frame = CGRect(origin: CGPoint(x: circle.cardEnergy.progressCircle.position.x-10, y: circle.cardEnergy.progressCircle.position.y-10), size: CGSize(width: 20, height: 20))
         
     }
     
