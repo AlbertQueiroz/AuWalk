@@ -16,7 +16,7 @@ final class UserDataRepositoryTests: XCTestCase {
     private lazy var sut = UserDataRepository(fileController: fileControllerMock)
     
     func test_createNewFile_whenFileControllerCreatesNewFile_shouldNotReturnNil() {
-        fileControllerMock.createFileMock = false
+        fileControllerMock.createFileMock = true
 
         let result = sut.createNewFile(data: .fixture())
         
@@ -30,7 +30,7 @@ final class UserDataRepositoryTests: XCTestCase {
     }
 
     func test_updateUserDataFile_whenFileControllerUpdatesFile_shouldNotReturnNil() {
-        fileControllerMock.updateFileMock = false
+        fileControllerMock.updateFileMock = true
 
         let result = sut.updateUserDataFile(data: .fixture())
         
