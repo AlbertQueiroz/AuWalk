@@ -8,12 +8,17 @@
 
 import Foundation
 
-struct FileController {
+protocol FileControllerProtocol {
+    func createFile(with data: Data, name: String) -> Bool
+    func updateFile(at path: String, data: Data) -> Bool
+    func retrieveFile(at path: String) -> Data?
+}
+
+final class FileController: FileControllerProtocol {
+
+    private let manager = FileManager.default
+    private let mainPath  = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     
-    let manager = FileManager.default
-    let mainPath  = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    
-    @discardableResult
     func createFile(with data: Data, name: String) -> Bool {
         let contentPath = constructPath(named: name)
         manager.createFile(atPath: contentPath.path, contents: data, attributes: nil)

@@ -8,15 +8,15 @@
 
 import UIKit
 
-var userDataStruct = UserData(steps: 0, normalCoinsTotal: 0, goldenCoinsTotal: 0, levelPet: 0, levelPersonal: 0, statusHeart: 0, statusFood: 0, statusHygiene: 0, statusEnergy: 0)
+var userDataStruct = UserData()
 
 class PetViewController: UIViewController {
     
     private let viewModel: PetViewModel
 
     init(viewModel: PetViewModel) {
-        super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder: NSCoder) {
@@ -41,7 +41,7 @@ class PetViewController: UIViewController {
         
         userDataStruct.statusHeart = 0
         
-        viewModel.updateUserData(data: userDataStruct)
+        viewModel.updateUserData(user: userDataStruct)
 
         if modalVC.statusLayers != [] {
             modalVC.animatingCircle(layer: modalVC.statusLayers[0] ?? CAShapeLayer(), from: modalVC.managerData.statusHeart, to: 0, mode: .backwards)
