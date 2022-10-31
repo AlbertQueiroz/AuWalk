@@ -11,21 +11,29 @@ import Foundation
 final class UserDataRepository {
     
     private let fileName = "UserData.Json"
-    
+    private let fileController: FileControllerProtocol
+
+    init(
+        fileController: FileControllerProtocol = FileController()
+    ) {
+        self.fileController = fileController
+    }
+
     func createNewFile(data: UserData) -> Data? {
 
-        guard let data = try? JSONEncoder().encode(data) else {
+        guard let data = try? JSONEncoder().encode(data),
+              fileController.createFile(
+                  with: data,
+                  name: fileName
+              )
+        else {
             return nil
         }
-        FileController().createFile(
-            with: data,
-            name: fileName
-        )
         return data
     }
     
     func readDataFromFile() -> UserData? {
-        guard let data = FileController().retrieveFile(at: fileName) else {
+        guard let data = fileController.retrieveFile(at: fileName) else {
             return nil
         }
         let userData = try? JSONDecoder().decode(UserData.self, from: data)
@@ -36,7 +44,7 @@ final class UserDataRepository {
     func updateUserDataFile(data : UserData) -> Data? {
         guard
             let data = try? JSONEncoder().encode(data),
-            FileController().updateFile(
+            fileController.updateFile(
                 at: fileName,
                 data: data
             )

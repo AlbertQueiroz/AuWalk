@@ -21,15 +21,15 @@ struct UserData : Encodable, Decodable {
     var statusEnergy : Float
     
     init(
-        steps: Int,
-        normalCoinsTotal: Int,
-        goldenCoinsTotal: Int,
-        levelPet: Int,
-        levelPersonal: Int,
-        statusHeart: Float,
-        statusFood: Float,
-        statusHygiene: Float,
-        statusEnergy: Float
+        steps: Int = 0,
+        normalCoinsTotal: Int = 0,
+        goldenCoinsTotal: Int = 0,
+        levelPet: Int = 0,
+        levelPersonal: Int = 0,
+        statusHeart: Float = 0,
+        statusFood: Float = 0,
+        statusHygiene: Float = 0,
+        statusEnergy: Float = 0
     ) {
          self.steps = steps
          self.normalCoinsTotal = normalCoinsTotal

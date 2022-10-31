@@ -91,7 +91,8 @@ class OnBoardingViewController: UIViewController {
     
         func presentNewScreen() {
             UserDefaults.standard.set(1, forKey: "hasSeenOnboard")
-            let destinity = PetViewController()
+            let viewModel = PetViewModel(userDataRepository: .init())
+            let destinity = PetViewController(viewModel: viewModel)
             destinity.modalPresentationStyle = .fullScreen
             self.present(destinity, animated: true, completion: nil)
         }
