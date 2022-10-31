@@ -20,14 +20,12 @@ struct FileController {
         return manager.fileExists(atPath: contentPath.path)
     }
     
-    @discardableResult
     func updateFile(at path: String, data: Data) -> Bool {
         let contentPath = constructPath(named: path)
         do {
             try data.write(to: contentPath)
             return true
-        } catch (let error) {
-            print(error.localizedDescription)
+        } catch {
             return false
         }
     }
@@ -48,5 +46,3 @@ struct FileController {
     }
     
 }
-
-

@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = mainViewController
         } else {
             let navigation = UINavigationController()
-            let mainViewController = PetViewController()
+            let mainViewController = PetViewController(viewModel: PetViewModel(userDataRepository: .init()))
             navigation.viewControllers = [mainViewController]
             window?.rootViewController = navigation
         }
