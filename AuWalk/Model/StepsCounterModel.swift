@@ -21,6 +21,7 @@ class StepsCounterModel: MoneyDelegate {
 
     var healthStore: HKHealthStore?
     var coinTracker: CoinTracker?
+    private let plistFile = "CoinTracker.plist"
     
     init() {
         if !HKHealthStore.isHealthDataAvailable() {
@@ -30,7 +31,10 @@ class StepsCounterModel: MoneyDelegate {
         }
 
         checkHKAvailability()
-        coinTracker = CoinTracker(coinsSpent: 0.0, coinsEarned: 0.0)
+        coinTracker = CoinTracker(
+            coinsSpent: 0.0,
+            coinsEarned: 0.0
+        )
         loadCoinsFromFile()
     }
     
@@ -60,9 +64,17 @@ class StepsCounterModel: MoneyDelegate {
                 start = thisWeek!.start
         }
         
-        let predicate = HKQuery.predicateForSamples(withStart: start, end: now, options: .strictStartDate)
+        let predicate = HKQuery.predicateForSamples(
+            withStart: start,
+            end: now,
+            options: .strictStartDate
+        )
     
-        let query = HKStatisticsQuery(quantityType: stepsQuantityType!, quantitySamplePredicate: predicate, options: .cumulativeSum) {
+        let query = HKStatisticsQuery(
+            quantityType: stepsQuantityType!,
+            quantitySamplePredicate: predicate,
+            options: .cumulativeSum
+        ) {
             
             (_, result, _) in
             
@@ -111,7 +123,7 @@ class StepsCounterModel: MoneyDelegate {
     func saveCoinsToFile() {
         let encoder = PropertyListEncoder()
         encoder.outputFormat = .xml
-        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("CoinTracker.plist")
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(plistFile)
         do {
             let data = try encoder.encode(coinTracker)
             try data.write(to: path)
@@ -123,7 +135,10 @@ class StepsCounterModel: MoneyDelegate {
     
     func loadCoinsFromFile() {
         
-        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("CoinTracker.plist")
+        let path = FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask
+        )[0].appendingPathComponent(plistFile)
         
         guard let data = try? Data(contentsOf: path) else {
             saveCoinsToFile()

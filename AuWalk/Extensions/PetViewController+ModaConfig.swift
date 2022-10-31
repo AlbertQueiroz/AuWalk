@@ -16,7 +16,7 @@ extension PetViewController {
         case expanded
         case collapsed
     }
-    
+
     func setupModal() {
         visualEffectView = UIVisualEffectView()
         visualEffectView.frame = self.view.frame
@@ -28,29 +28,28 @@ extension PetViewController {
         
         modalVC.view.clipsToBounds = true
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PetViewController.handleModalTap(recognzier:)))
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(PetViewController.handleModalPan(recognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(PetViewController.handleModalTap(recognzier:))
+        )
+        let panGestureRecognizer = UIPanGestureRecognizer(
+            target: self,
+            action: #selector(PetViewController.handleModalPan(recognizer:))
+        )
         
         modalVC.modalView.handleArea.addGestureRecognizer(tapGestureRecognizer)
         modalVC.modalView.handleArea.addGestureRecognizer(panGestureRecognizer)
-        //modalVC.modalView.collectionView.addGestureRecognizer(panGestureRecognizer)
-        
-        
-        
     }
 
    
     @objc func handleModalTap(recognzier:UITapGestureRecognizer) {
-        switch recognzier.state {
-        case .ended:
+        if case .ended = recognzier.state {
             animateTransitionIfNeeded(state: nextState, duration: 0.9)
-        default:
-            break
         }
     }
     
     
-    @objc func handleModalPan (recognizer:UIPanGestureRecognizer) {
+    @objc func handleModalPan(recognizer:UIPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
             startInteractiveTransition(state: nextState, duration: 0.9)
@@ -67,7 +66,10 @@ extension PetViewController {
         
     }
     
-    func animateTransitionIfNeeded (state:ModalState, duration:TimeInterval) {
+    func animateTransitionIfNeeded(
+        state:ModalState,
+        duration:TimeInterval
+    ) {
         if runningAnimations.isEmpty {
             let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
                 switch state {
@@ -116,7 +118,10 @@ extension PetViewController {
     
     func startInteractiveTransition(state:ModalState, duration:TimeInterval) {
         if runningAnimations.isEmpty {
-            animateTransitionIfNeeded(state: state, duration: duration)
+            animateTransitionIfNeeded(
+                state: state,
+                duration: duration
+            )
         }
         for animator in runningAnimations {
             animator.pauseAnimation()
@@ -132,7 +137,10 @@ extension PetViewController {
     
     func continueInteractiveTransition (){
         for animator in runningAnimations {
-            animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+            animator.continueAnimation(
+                withTimingParameters: nil,
+                durationFactor: 0
+            )
         }
     }
     

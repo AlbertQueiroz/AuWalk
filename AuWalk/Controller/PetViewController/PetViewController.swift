@@ -23,42 +23,14 @@ class PetViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func onInitReadValues(){
-        guard let data = viewModel.getLocalUserData() else {return}
-        userDataStruct.steps = data.steps
-        userDataStruct.goldenCoinsTotal = data.goldenCoinsTotal
-        userDataStruct.levelPersonal = data.levelPersonal
-        userDataStruct.levelPet = data.levelPet
-        userDataStruct.normalCoinsTotal = data.normalCoinsTotal
-        userDataStruct.statusEnergy = data.statusEnergy
-        userDataStruct.statusFood = data.statusFood
-        userDataStruct.statusHeart = data.statusHeart
-        userDataStruct.statusHygiene = data.statusHygiene
-    }
-    
-    func updateStatusValues() {
-        
-        
-        userDataStruct.statusHeart = 0
-        
-        viewModel.updateUserData(user: userDataStruct)
-
-        if modalVC.statusLayers != [] {
-            modalVC.animatingCircle(layer: modalVC.statusLayers[0] ?? CAShapeLayer(), from: modalVC.managerData.statusHeart, to: 0, mode: .backwards)
-        }
-        
-        modalVC.managerData.statusHeart = 0
-        
-    }
-    
-    let topBar: TopBar = {
+    private let topBar: TopBar = {
         let tb = TopBar()
         tb.translatesAutoresizingMaskIntoConstraints = false
         return tb
     }()
     
-    let stepsCounterModel = StepsCounterModel()
-    let petView = PetView()
+    private let stepsCounterModel = StepsCounterModel()
+    private let petView = PetView()
     let modalView = ModalView()
     
     //Modal Properties
@@ -73,7 +45,7 @@ class PetViewController: UIViewController {
     var runningAnimations = [UIViewPropertyAnimator]()
     var animationProgressWhenInterrupted:CGFloat = 0
     
-    let circle = HomePetStatusView()
+    private let circle = HomePetStatusView()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -84,7 +56,12 @@ class PetViewController: UIViewController {
 
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateHandler), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.updateHandler),
+            name: UIApplication.willEnterForegroundNotification,
+            object: nil
+        )
     }
     
     override func viewDidLoad() {
@@ -164,6 +141,34 @@ class PetViewController: UIViewController {
         circle.cardFood.imageIconView.frame = CGRect(origin: CGPoint(x: circle.cardFood.progressCircle.position.x-10, y: circle.cardFood.progressCircle.position.y-10), size: CGSize(width: 20, height: 20))
         circle.cardHygiene.imageIconView.frame = CGRect(origin: CGPoint(x: circle.cardHygiene.progressCircle.position.x-10, y: circle.cardHygiene.progressCircle.position.y-10), size: CGSize(width: 20, height: 20))
         circle.cardEnergy.imageIconView.frame = CGRect(origin: CGPoint(x: circle.cardEnergy.progressCircle.position.x-10, y: circle.cardEnergy.progressCircle.position.y-10), size: CGSize(width: 20, height: 20))
+        
+    }
+    
+    func onInitReadValues(){
+        guard let data = viewModel.getLocalUserData() else {return}
+        userDataStruct.steps = data.steps
+        userDataStruct.goldenCoinsTotal = data.goldenCoinsTotal
+        userDataStruct.levelPersonal = data.levelPersonal
+        userDataStruct.levelPet = data.levelPet
+        userDataStruct.normalCoinsTotal = data.normalCoinsTotal
+        userDataStruct.statusEnergy = data.statusEnergy
+        userDataStruct.statusFood = data.statusFood
+        userDataStruct.statusHeart = data.statusHeart
+        userDataStruct.statusHygiene = data.statusHygiene
+    }
+    
+    func updateStatusValues() {
+        
+        
+        userDataStruct.statusHeart = 0
+        
+        viewModel.updateUserData(user: userDataStruct)
+
+        if modalVC.statusLayers != [] {
+            modalVC.animatingCircle(layer: modalVC.statusLayers[0] ?? CAShapeLayer(), from: modalVC.managerData.statusHeart, to: 0, mode: .backwards)
+        }
+        
+        modalVC.managerData.statusHeart = 0
         
     }
     
