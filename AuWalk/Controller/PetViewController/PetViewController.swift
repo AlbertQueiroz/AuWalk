@@ -12,8 +12,19 @@ var userDataStruct = UserData(steps: 0, normalCoinsTotal: 0, goldenCoinsTotal: 0
 
 class PetViewController: UIViewController {
     
+    private let viewModel: PetViewModel
+
+    init(viewModel: PetViewModel) {
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func onInitReadValues(){
-        guard let data = readUserDataFromFile() else {return}
+        guard let data = viewModel.getLocalUserData() else {return}
         userDataStruct.steps = data.steps
         userDataStruct.goldenCoinsTotal = data.goldenCoinsTotal
         userDataStruct.levelPersonal = data.levelPersonal
@@ -30,7 +41,7 @@ class PetViewController: UIViewController {
         
         userDataStruct.statusHeart = 0
         
-        let _ = updateUserDataFile(data: userDataStruct)
+        viewModel.updateUserData(data: userDataStruct)
 
         if modalVC.statusLayers != [] {
             modalVC.animatingCircle(layer: modalVC.statusLayers[0] ?? CAShapeLayer(), from: modalVC.managerData.statusHeart, to: 0, mode: .backwards)

@@ -85,7 +85,7 @@ public class DataManager {
     }
 }
 
-protocol updateDelegate: class {
+protocol updateDelegate: AnyObject {
     func usedItemChanges (category: String?, price : Int?)
     func retornoData (category: String?) -> Float
     func atualizarDados()
@@ -116,7 +116,7 @@ extension DataManager : updateDelegate{
         let userData = UserData(steps: self.steps, normalCoinsTotal: self.normalCoinsTotal, goldenCoinsTotal: self.goldenCoinsTotal, levelPet: self.levelPet, levelPersonal: self.levelPersonal, statusHeart: self.statusHeart, statusFood: self.statusFood, statusHygiene: self.statusHygiene, statusEnergy: self.statusEnergy)
         
         
-        if updateUserDataFile(data: userData) != nil{
+        if UserDataRepository().updateUserDataFile(data: userData) != nil{
             print("sucesso ao atualizar")
         } else {
             print("erro")

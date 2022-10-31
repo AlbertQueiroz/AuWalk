@@ -8,29 +8,42 @@
 
 import Foundation
 
-func createNewFile(data: UserData) -> Data?{
+final class UserDataRepository {
     
-    if let data = try? JSONEncoder().encode(data){
-        FileController().createFile(with: data, name: "UserData.Json")
+    private let fileName = "UserData.Json"
+    
+    func createNewFile(data: UserData) -> Data? {
+
+        guard let data = try? JSONEncoder().encode(data) else {
+            return nil
+        }
+        FileController().createFile(
+            with: data,
+            name: fileName
+        )
         return data
     }
-    return nil
-}
-
-func readUserDataFromFile() -> UserData?{
     
-    if let data = FileController().retrieveFile(at: "UserData.Json"){
+    func readDataFromFile() -> UserData? {
+        guard let data = FileController().retrieveFile(at: fileName) else {
+            return nil
+        }
         let userData = try? JSONDecoder().decode(UserData.self, from: data)
+
         return userData
     }
-    return nil
-}
-
-func updateUserDataFile(data : UserData) -> Data?{
     
-    if let data = try? JSONEncoder().encode(data){
-        FileController().updateFile(at: "UserData.Json", data: data)
+    func updateUserDataFile(data : UserData) -> Data? {
+        guard
+            let data = try? JSONEncoder().encode(data),
+            FileController().updateFile(
+                at: fileName,
+                data: data
+            )
+        else {
+            return nil
+        }
         return data
     }
-    return nil
+    
 }

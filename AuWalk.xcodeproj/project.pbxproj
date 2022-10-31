@@ -40,6 +40,7 @@
 		EC060F05249BAFDE00398EDD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC060F04249BAFDE00398EDD /* DataManager.swift */; };
 		EC3CD98F2497BA3300487CAF /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3CD98E2497BA3300487CAF /* UserData.swift */; };
 		EC3CD9912497BA8D00487CAF /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3CD9902497BA8D00487CAF /* FileManager.swift */; };
+		EC4A53B32910220F0050072E /* PetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4A53B22910220F0050072E /* PetViewModel.swift */; };
 		EC79D24424A0D56500F2BC25 /* UserDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC79D24324A0D56500F2BC25 /* UserDataRepository.swift */; };
 		EC88B1582491AA4A00FFBC0D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC88B1572491AA4A00FFBC0D /* Item.swift */; };
 		ECED3F58249127EA00DACECA /* HomePetStatusCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED3F57249127EA00DACECA /* HomePetStatusCardView.swift */; };
@@ -105,6 +106,7 @@
 		EC060F04249BAFDE00398EDD /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		EC3CD98E2497BA3300487CAF /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		EC3CD9902497BA8D00487CAF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		EC4A53B22910220F0050072E /* PetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewModel.swift; sourceTree = "<group>"; };
 		EC79D24324A0D56500F2BC25 /* UserDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepository.swift; sourceTree = "<group>"; };
 		EC88B1572491AA4A00FFBC0D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		ECED3F57249127EA00DACECA /* HomePetStatusCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePetStatusCardView.swift; path = AuWalk/View/HomePetStatusCardView.swift; sourceTree = SOURCE_ROOT; };
@@ -275,9 +277,9 @@
 		AEC258A3248FCA50006B7F95 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EC4A53B1291022010050072E /* PetViewController */,
 				9BCB10E924A22DD500EE6278 /* Onboarding */,
 				AEC258B82491B1BB006B7F95 /* ModalViewController.swift */,
-				E907AA6D2491DB3D000F36EA /* PetViewController.swift */,
 				AEC48E6D249B99E5009BC30B /* StatisticsViewController.swift */,
 				EC3CD9902497BA8D00487CAF /* FileManager.swift */,
 			);
@@ -307,6 +309,15 @@
 				E9BB2412249AD0C90017691E /* HealthKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC4A53B1291022010050072E /* PetViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E907AA6D2491DB3D000F36EA /* PetViewController.swift */,
+				EC4A53B22910220F0050072E /* PetViewModel.swift */,
+			);
+			path = PetViewController;
 			sourceTree = "<group>";
 		};
 		ECED3F5D249128F800DACECA /* Shared */ = {
@@ -478,6 +489,7 @@
 				AEA185F62497B726001358A3 /* StoreRepository.swift in Sources */,
 				AE51848124A22F5E009DF602 /* StatisticsListView.swift in Sources */,
 				AEC25873248FC038006B7F95 /* SceneDelegate.swift in Sources */,
+				EC4A53B32910220F0050072E /* PetViewModel.swift in Sources */,
 				E9089FED24906215005FB179 /* TopBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,6 +659,7 @@
 				CODE_SIGN_ENTITLEMENTS = AuWalk/AuWalk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AuWalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -665,6 +678,7 @@
 				CODE_SIGN_ENTITLEMENTS = AuWalk/AuWalk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AuWalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
