@@ -44,6 +44,9 @@
 		EC4A53B5291028910050072E /* UserDataRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4A53B4291028910050072E /* UserDataRepositoryTests.swift */; };
 		EC4A53B8291028A80050072E /* FileControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4A53B7291028A80050072E /* FileControllerMock.swift */; };
 		EC4A53BB291029BF0050072E /* UserData+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4A53BA291029BF0050072E /* UserData+Fixtures.swift */; };
+		EC4A53BD29106A360050072E /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4A53BC29106A360050072E /* HealthService.swift */; };
+		EC4A53BF29106A6F0050072E /* CoinTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4A53BE29106A6F0050072E /* CoinTracker.swift */; };
+		EC4A53C129106A7F0050072E /* StepsFromDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4A53C029106A7F0050072E /* StepsFromDate.swift */; };
 		EC79D24424A0D56500F2BC25 /* UserDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC79D24324A0D56500F2BC25 /* UserDataRepository.swift */; };
 		EC88B1582491AA4A00FFBC0D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC88B1572491AA4A00FFBC0D /* Item.swift */; };
 		ECED3F58249127EA00DACECA /* HomePetStatusCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED3F57249127EA00DACECA /* HomePetStatusCardView.swift */; };
@@ -113,6 +116,9 @@
 		EC4A53B4291028910050072E /* UserDataRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepositoryTests.swift; sourceTree = "<group>"; };
 		EC4A53B7291028A80050072E /* FileControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileControllerMock.swift; sourceTree = "<group>"; };
 		EC4A53BA291029BF0050072E /* UserData+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserData+Fixtures.swift"; sourceTree = "<group>"; };
+		EC4A53BC29106A360050072E /* HealthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthService.swift; sourceTree = "<group>"; };
+		EC4A53BE29106A6F0050072E /* CoinTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTracker.swift; sourceTree = "<group>"; };
+		EC4A53C029106A7F0050072E /* StepsFromDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsFromDate.swift; sourceTree = "<group>"; };
 		EC79D24324A0D56500F2BC25 /* UserDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepository.swift; sourceTree = "<group>"; };
 		EC88B1572491AA4A00FFBC0D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		ECED3F57249127EA00DACECA /* HomePetStatusCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePetStatusCardView.swift; path = AuWalk/View/HomePetStatusCardView.swift; sourceTree = SOURCE_ROOT; };
@@ -187,6 +193,7 @@
 				AEA185EF2497B0B5001358A3 /* HTTP.swift */,
 				AEA185F12497B2BB001358A3 /* StoreAPI.swift */,
 				AEA185F32497B391001358A3 /* Router.swift */,
+				EC4A53BC29106A360050072E /* HealthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -261,6 +268,8 @@
 				9BCB10EE24A23BFB00EE6278 /* Onboard.swift */,
 				E9BB2414249AE91F0017691E /* StepsCounterModel.swift */,
 				EC060F04249BAFDE00398EDD /* DataManager.swift */,
+				EC4A53BE29106A6F0050072E /* CoinTracker.swift */,
+				EC4A53C029106A7F0050072E /* StepsFromDate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -486,6 +495,7 @@
 				AE2EF1B1249CFE980018668A /* PetListView.swift in Sources */,
 				AEA185F22497B2BB001358A3 /* StoreAPI.swift in Sources */,
 				EC060F05249BAFDE00398EDD /* DataManager.swift in Sources */,
+				EC4A53C129106A7F0050072E /* StepsFromDate.swift in Sources */,
 				AEA185F02497B0B5001358A3 /* HTTP.swift in Sources */,
 				9BCB10ED24A2355600EE6278 /* CollectionViewCell.swift in Sources */,
 				EC88B1582491AA4A00FFBC0D /* Item.swift in Sources */,
@@ -502,10 +512,12 @@
 				EC3CD9912497BA8D00487CAF /* FileManager.swift in Sources */,
 				AEC258B424911F32006B7F95 /* ModalView.swift in Sources */,
 				9BE79315249128B1004496A4 /* InformationsView.swift in Sources */,
+				EC4A53BD29106A360050072E /* HealthService.swift in Sources */,
 				AEC48E70249B9C6D009BC30B /* StatisticsView.swift in Sources */,
 				EC3CD98F2497BA3300487CAF /* UserData.swift in Sources */,
 				AEC48E6E249B99E5009BC30B /* StatisticsViewController.swift in Sources */,
 				AEA185F42497B392001358A3 /* Router.swift in Sources */,
+				EC4A53BF29106A6F0050072E /* CoinTracker.swift in Sources */,
 				E9BB2415249AE91F0017691E /* StepsCounterModel.swift in Sources */,
 				AEC258BB2491CC32006B7F95 /* PetViewController+ModaConfig.swift in Sources */,
 				AEC258B92491B1BC006B7F95 /* ModalViewController.swift in Sources */,

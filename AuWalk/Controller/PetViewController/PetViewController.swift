@@ -73,12 +73,8 @@ class PetViewController: UIViewController {
         modalVC.petViewVC = self
         stepsCounterModel.loadCoinsFromFile()
         
-        stepsCounterModel.fetchSteps(from: .today) { (steps) in
+        stepsCounterModel.fetchSteps(from: .today) { steps, pawMoney in
             self.petView.updateStepsLabel(newValue: steps)
-            self.stepsCounterModel.updateBalance(currentCoinsLabel: steps)
-            
-            let pawMoney = self.stepsCounterModel.coinTracker!.coinsEarned - self.stepsCounterModel.coinTracker!.coinsSpent
-            
             self.topBar.pawMoney.updateAmount(amount: Int(pawMoney))
         }
 
@@ -100,13 +96,10 @@ class PetViewController: UIViewController {
     }
     
     @objc func updateHandler() {
-        stepsCounterModel.fetchSteps(from: .today) { (steps) in
+        stepsCounterModel.fetchSteps(from: .today) { steps, pawMoney in
             self.stepsCounterModel.loadCoinsFromFile()
             self.petView.updateStepsLabel(newValue: steps)
-            self.stepsCounterModel.updateBalance(currentCoinsLabel: steps)
-            
-            let pawMoney = self.stepsCounterModel.coinTracker!.coinsEarned - self.stepsCounterModel.coinTracker!.coinsSpent
-            
+
             self.topBar.pawMoney.updateAmount(amount: Int(pawMoney))
         }
     }
