@@ -16,7 +16,14 @@ public struct Item : Decodable, Encodable {
     var category : String
     var image : String
     
-    init (id : Int, name : String, description: String, price: Int, category : String, image : String ) {
+    init(
+        id : Int,
+        name : String,
+        description: String,
+        price: Int,
+        category : String,
+        image : String
+    ) {
         self.id = id
         self.name = name
         self.description = description

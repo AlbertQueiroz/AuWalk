@@ -40,7 +40,17 @@ public class DataManager {
     var statusHygiene : Float
     var statusEnergy : Float
     
-    init(steps: Int, normalCoinsTotal: Int, goldenCoinsTotal: Int, levelPet: Int, levelPersonal: Int, statusHeart: Float, statusFood: Float, statusHygiene: Float, statusEnergy: Float) {
+    init(
+        steps: Int,
+        normalCoinsTotal: Int,
+        goldenCoinsTotal: Int,
+        levelPet: Int,
+        levelPersonal: Int,
+        statusHeart: Float,
+        statusFood: Float,
+        statusHygiene: Float,
+        statusEnergy: Float
+    ) {
         self.steps = steps
         self.normalCoinsTotal = normalCoinsTotal
         self.goldenCoinsTotal = goldenCoinsTotal

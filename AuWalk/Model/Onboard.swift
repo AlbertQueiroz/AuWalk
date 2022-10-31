@@ -16,9 +16,19 @@ struct Onboard {
     
     static func mockOnboard() -> [Onboard] {
         return [
-            Onboard(image: "onboarding01", subtitle: "Bem vindo ao Auwalk, onde você cuida dos seus pets virtuais ao mesmo tempo que cuida de você.", buttonTitle: "Próximo"),
-            Onboard(image: "onboarding02", subtitle: "Os seus passos são convertidos em pontos que farão o seu pet evoluir.", buttonTitle: "Próximo"),
-            Onboard(image: "onboarding03", subtitle: "Ao fim, cada pet resgatado poderá ser adotado por uma nova familía e você poderá cuidar de novos pets.", buttonTitle: "Começar")
+            Onboard(
+                image: "onboarding01",
+                subtitle: "Bem vindo ao Auwalk, onde você cuida dos seus pets virtuais ao mesmo tempo que cuida de você.",
+                buttonTitle: "Próximo"),
+            Onboard(
+                image: "onboarding02",
+                subtitle: "Os seus passos são convertidos em pontos que farão o seu pet evoluir.",
+                buttonTitle: "Próximo"),
+            Onboard(
+                image: "onboarding03",
+                subtitle: "Ao fim, cada pet resgatado poderá ser adotado por uma nova familía e você poderá cuidar de novos pets.",
+                buttonTitle: "Começar"
+            )
         ]
     }
 }
